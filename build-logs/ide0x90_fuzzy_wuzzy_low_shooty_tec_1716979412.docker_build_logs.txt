@@ -1,0 +1,81 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.10kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/19] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 23.36kB done
+#5 DONE 0.0s
+
+#6 [11/19] RUN apt-get install -y -q build-essential curl
+#6 CACHED
+
+#7 [16/19] RUN pip install crosshair-tool
+#7 CACHED
+
+#8 [13/19] COPY Cargo* ./
+#8 CACHED
+
+#9 [ 9/19] RUN pip install wheel
+#9 CACHED
+
+#10 [ 8/19] RUN apt-get install -y -q clang
+#10 CACHED
+
+#11 [ 6/19] COPY requirements.txt requirements.txt
+#11 CACHED
+
+#12 [ 7/19] RUN pip install -r requirements.txt
+#12 CACHED
+
+#13 [ 4/19] RUN useradd participant
+#13 CACHED
+
+#14 [14/19] COPY src/ ./src
+#14 CACHED
+
+#15 [15/19] RUN cargo build --release
+#15 CACHED
+
+#16 [ 5/19] WORKDIR /home/participant
+#16 CACHED
+
+#17 [10/19] RUN pip install --no-binary atheris atheris
+#17 CACHED
+
+#18 [12/19] RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+#18 CACHED
+
+#19 [ 2/19] RUN apt update -y
+#19 CACHED
+
+#20 [ 3/19] RUN apt install -y git pkg-config libcairo-dev gcc
+#20 CACHED
+
+#21 [17/19] RUN apt-get install -y -q vim
+#21 CACHED
+
+#22 [18/19] COPY *.py ./
+#22 DONE 0.1s
+
+#23 [19/19] COPY examples ./examples
+#23 DONE 0.0s
+
+#24 exporting to image
+#24 exporting layers done
+#24 writing image sha256:c25e5cc4f743f979d7f46310c1a73410ea968028ecad466862e0b45ed5c3197a done
+#24 naming to docker.io/library/student-fuzzer:ide0x90_fuzzy_wuzzy_low_shooty_tec_1716979412 done
+#24 DONE 0.0s
+STDERR vvvvvvvvvvvvvvvvvv

@@ -1,0 +1,212 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.10kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/19] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 23.35kB done
+#5 DONE 0.0s
+
+#6 [14/19] COPY src/ ./src
+#6 CACHED
+
+#7 [ 4/19] RUN useradd participant
+#7 CACHED
+
+#8 [ 9/19] RUN pip install wheel
+#8 CACHED
+
+#9 [12/19] RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+#9 CACHED
+
+#10 [13/19] COPY Cargo* ./
+#10 CACHED
+
+#11 [11/19] RUN apt-get install -y -q build-essential curl
+#11 CACHED
+
+#12 [ 2/19] RUN apt update -y
+#12 CACHED
+
+#13 [10/19] RUN pip install --no-binary atheris atheris
+#13 CACHED
+
+#14 [ 7/19] RUN pip install -r requirements.txt
+#14 CACHED
+
+#15 [ 3/19] RUN apt install -y git pkg-config libcairo-dev gcc
+#15 CACHED
+
+#16 [ 8/19] RUN apt-get install -y -q clang
+#16 CACHED
+
+#17 [ 5/19] WORKDIR /home/participant
+#17 CACHED
+
+#18 [ 6/19] COPY requirements.txt requirements.txt
+#18 CACHED
+
+#19 [15/19] RUN cargo build --release
+#19 CACHED
+
+#20 [16/19] RUN pip install crosshair-tool
+#20 0.807 Collecting crosshair-tool
+#20 0.844   Downloading crosshair_tool-0.0.54-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (459 kB)
+#20 0.891      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 459.2/459.2 kB 10.0 MB/s eta 0:00:00
+#20 0.914 Requirement already satisfied: packaging in /usr/local/lib/python3.10/site-packages (from crosshair-tool) (23.1)
+#20 0.939 Collecting typeshed-client>=2.0.5
+#20 0.973   Downloading typeshed_client-2.5.1-py3-none-any.whl (606 kB)
+#20 1.026      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 606.1/606.1 kB 11.8 MB/s eta 0:00:00
+#20 1.104 Collecting importlib-metadata>=4.0.0
+#20 1.109   Downloading importlib_metadata-7.1.0-py3-none-any.whl (24 kB)
+#20 1.137 Collecting pygls>=1.0.0
+#20 1.143   Downloading pygls-1.3.1-py3-none-any.whl (56 kB)
+#20 1.150      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.0/56.0 kB 12.9 MB/s eta 0:00:00
+#20 1.190 Collecting z3-solver==4.11.2.0
+#20 1.199   Downloading z3_solver-4.11.2.0-py2.py3-none-manylinux1_x86_64.whl (53.8 MB)
+#20 6.010      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.8/53.8 MB 10.1 MB/s eta 0:00:00
+#20 6.172 Collecting typing-extensions>=3.10.0
+#20 6.176   Downloading typing_extensions-4.12.0-py3-none-any.whl (37 kB)
+#20 6.196 Collecting typing-inspect>=0.7.1
+#20 6.200   Downloading typing_inspect-0.9.0-py3-none-any.whl (8.8 kB)
+#20 6.256 Collecting zipp>=0.5
+#20 6.259   Downloading zipp-3.19.0-py3-none-any.whl (8.3 kB)
+#20 6.288 Collecting cattrs>=23.1.2
+#20 6.292   Downloading cattrs-23.2.3-py3-none-any.whl (57 kB)
+#20 6.297      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.5/57.5 kB 15.7 MB/s eta 0:00:00
+#20 6.317 Collecting lsprotocol==2023.0.1
+#20 6.323   Downloading lsprotocol-2023.0.1-py3-none-any.whl (70 kB)
+#20 6.330      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.8/70.8 kB 12.4 MB/s eta 0:00:00
+#20 6.333 Requirement already satisfied: attrs>=21.3.0 in /usr/local/lib/python3.10/site-packages (from lsprotocol==2023.0.1->pygls>=1.0.0->crosshair-tool) (23.1.0)
+#20 6.387 Collecting importlib-resources>=1.4.0
+#20 6.391   Downloading importlib_resources-6.4.0-py3-none-any.whl (38 kB)
+#20 6.418 Collecting mypy-extensions>=0.3.0
+#20 6.422   Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+#20 6.442 Requirement already satisfied: exceptiongroup>=1.1.1 in /usr/local/lib/python3.10/site-packages (from cattrs>=23.1.2->pygls>=1.0.0->crosshair-tool) (1.1.1)
+#20 7.099 Installing collected packages: z3-solver, zipp, typing-extensions, mypy-extensions, importlib-resources, typing-inspect, typeshed-client, importlib-metadata, cattrs, lsprotocol, pygls, crosshair-tool
+#20 7.099   Attempting uninstall: z3-solver
+#20 7.099     Found existing installation: z3-solver 4.12.2.0
+#20 7.104     Uninstalling z3-solver-4.12.2.0:
+#20 7.233       Successfully uninstalled z3-solver-4.12.2.0
+#20 8.614 Successfully installed cattrs-23.2.3 crosshair-tool-0.0.54 importlib-metadata-7.1.0 importlib-resources-6.4.0 lsprotocol-2023.0.1 mypy-extensions-1.0.0 pygls-1.3.1 typeshed-client-2.5.1 typing-extensions-4.12.0 typing-inspect-0.9.0 z3-solver-4.11.2.0 zipp-3.19.0
+#20 8.614 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#20 8.655 
+#20 8.655 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#20 8.655 [notice] To update, run: pip install --upgrade pip
+#20 DONE 8.9s
+
+#21 [17/19] RUN apt-get install -y -q vim
+#21 0.324 Reading package lists...
+#21 0.763 Building dependency tree...
+#21 0.848 Reading state information...
+#21 0.952 The following additional packages will be installed:
+#21 0.952   libsodium23 vim-common vim-runtime xxd
+#21 0.953 Suggested packages:
+#21 0.953   ctags vim-doc vim-scripts
+#21 1.030 The following NEW packages will be installed:
+#21 1.030   libsodium23 vim vim-common vim-runtime xxd
+#21 1.143 0 upgraded, 5 newly installed, 0 to remove and 0 not upgraded.
+#21 1.143 Need to get 8962 kB of archives.
+#21 1.143 After this operation, 41.8 MB of additional disk space will be used.
+#21 1.143 Get:1 http://deb.debian.org/debian bookworm/main amd64 vim-common all 2:9.0.1378-2 [124 kB]
+#21 1.174 Get:2 http://deb.debian.org/debian bookworm/main amd64 libsodium23 amd64 1.0.18-1 [161 kB]
+#21 1.406 Get:3 http://deb.debian.org/debian bookworm/main amd64 vim-runtime all 2:9.0.1378-2 [7025 kB]
+#21 1.994 Get:4 http://deb.debian.org/debian bookworm/main amd64 vim amd64 2:9.0.1378-2 [1567 kB]
+#21 2.127 Get:5 http://deb.debian.org/debian bookworm/main amd64 xxd amd64 2:9.0.1378-2 [83.7 kB]
+#21 2.248 debconf: delaying package configuration, since apt-utils is not installed
+#21 2.267 Fetched 8962 kB in 1s (8158 kB/s)
+#21 2.279 Selecting previously unselected package vim-common.
+#21 2.279 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 25103 files and directories currently installed.)
+#21 2.290 Preparing to unpack .../vim-common_2%3a9.0.1378-2_all.deb ...
+#21 2.290 Unpacking vim-common (2:9.0.1378-2) ...
+#21 2.309 Selecting previously unselected package libsodium23:amd64.
+#21 2.310 Preparing to unpack .../libsodium23_1.0.18-1_amd64.deb ...
+#21 2.311 Unpacking libsodium23:amd64 (1.0.18-1) ...
+#21 2.335 Selecting previously unselected package vim-runtime.
+#21 2.336 Preparing to unpack .../vim-runtime_2%3a9.0.1378-2_all.deb ...
+#21 2.341 Adding 'diversion of /usr/share/vim/vim90/doc/help.txt to /usr/share/vim/vim90/doc/help.txt.vim-tiny by vim-runtime'
+#21 2.346 Adding 'diversion of /usr/share/vim/vim90/doc/tags to /usr/share/vim/vim90/doc/tags.vim-tiny by vim-runtime'
+#21 2.348 Unpacking vim-runtime (2:9.0.1378-2) ...
+#21 2.730 Selecting previously unselected package vim.
+#21 2.732 Preparing to unpack .../vim_2%3a9.0.1378-2_amd64.deb ...
+#21 2.732 Unpacking vim (2:9.0.1378-2) ...
+#21 2.843 Selecting previously unselected package xxd.
+#21 2.845 Preparing to unpack .../xxd_2%3a9.0.1378-2_amd64.deb ...
+#21 2.845 Unpacking xxd (2:9.0.1378-2) ...
+#21 2.869 Setting up libsodium23:amd64 (1.0.18-1) ...
+#21 2.870 Setting up xxd (2:9.0.1378-2) ...
+#21 2.871 Setting up vim-common (2:9.0.1378-2) ...
+#21 2.873 Setting up vim-runtime (2:9.0.1378-2) ...
+#21 2.928 Setting up vim (2:9.0.1378-2) ...
+#21 2.931 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/man1/editor.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/da/man1/editor.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/de/man1/editor.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/fr/man1/editor.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/it/man1/editor.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/ja/man1/editor.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/pl/man1/editor.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/ru/man1/editor.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.931 update-alternatives: warning: skip creation of /usr/share/man/tr/man1/editor.1.gz because associated file /usr/share/man/tr/man1/vim.1.gz (of link group editor) doesn't exist
+#21 2.932 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/man1/ex.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/da/man1/ex.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/de/man1/ex.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/fr/man1/ex.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/it/man1/ex.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/ja/man1/ex.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/pl/man1/ex.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/ru/man1/ex.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.932 update-alternatives: warning: skip creation of /usr/share/man/tr/man1/ex.1.gz because associated file /usr/share/man/tr/man1/vim.1.gz (of link group ex) doesn't exist
+#21 2.934 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+#21 2.935 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+#21 2.936 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/man1/vi.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/da/man1/vi.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/de/man1/vi.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/fr/man1/vi.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/it/man1/vi.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/ja/man1/vi.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/pl/man1/vi.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/ru/man1/vi.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.936 update-alternatives: warning: skip creation of /usr/share/man/tr/man1/vi.1.gz because associated file /usr/share/man/tr/man1/vim.1.gz (of link group vi) doesn't exist
+#21 2.938 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/man1/view.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/da/man1/view.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/de/man1/view.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/fr/man1/view.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/it/man1/view.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/ja/man1/view.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/pl/man1/view.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/ru/man1/view.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.938 update-alternatives: warning: skip creation of /usr/share/man/tr/man1/view.1.gz because associated file /usr/share/man/tr/man1/vim.1.gz (of link group view) doesn't exist
+#21 2.940 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+#21 2.941 update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+#21 2.942 Processing triggers for libc-bin (2.36-9+deb12u7) ...
+#21 DONE 3.0s
+
+#22 [18/19] COPY *.py ./
+#22 DONE 0.0s
+
+#23 [19/19] COPY examples ./examples
+#23 DONE 0.0s
+
+#24 exporting to image
+#24 exporting layers
+#24 exporting layers 0.7s done
+#24 writing image sha256:c2e9953e196bef8e7f5f4054a63770c9e76dbd44f8c5f83b3e342bf14799c993 done
+#24 naming to docker.io/library/student-fuzzer:ide0x90_fuzzy_wuzzy_low_plus_shooty_tec_1716972868 0.0s done
+#24 DONE 0.7s
+STDERR vvvvvvvvvvvvvvvvvv

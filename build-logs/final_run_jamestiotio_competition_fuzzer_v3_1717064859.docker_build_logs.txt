@@ -1,0 +1,84 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 997B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/20] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 771.71kB done
+#5 DONE 0.0s
+
+#6 [14/20] WORKDIR atheris/
+#6 CACHED
+
+#7 [ 3/20] RUN apt install -y git pkg-config libcairo-dev gcc
+#7 CACHED
+
+#8 [15/20] RUN git apply atheris.patch
+#8 CACHED
+
+#9 [ 2/20] RUN apt update -y
+#9 CACHED
+
+#10 [12/20] RUN cp atheris.patch atheris/
+#10 CACHED
+
+#11 [11/20] RUN git clone https://github.com/google/atheris.git
+#11 CACHED
+
+#12 [ 9/20] COPY atheris.patch atheris.patch
+#12 CACHED
+
+#13 [ 8/20] RUN apt install -y g++
+#13 CACHED
+
+#14 [10/20] COPY libclang_rt.fuzzer.a libclang_rt.fuzzer.a
+#14 CACHED
+
+#15 [16/20] RUN LIBFUZZER_LIB=$(pwd)/libclang_rt.fuzzer.a pip install .
+#15 CACHED
+
+#16 [17/20] WORKDIR ../
+#16 CACHED
+
+#17 [ 5/20] WORKDIR /home/participant
+#17 CACHED
+
+#18 [ 4/20] RUN useradd participant
+#18 CACHED
+
+#19 [ 7/20] RUN pip install -r requirements.txt
+#19 CACHED
+
+#20 [13/20] RUN cp libclang_rt.fuzzer.a atheris/
+#20 CACHED
+
+#21 [ 6/20] COPY requirements.txt requirements.txt
+#21 CACHED
+
+#22 [18/20] RUN pip install crosshair-tool
+#22 CACHED
+
+#23 [19/20] COPY *.py ./
+#23 DONE 0.0s
+
+#24 [20/20] COPY examples ./examples
+#24 DONE 0.0s
+
+#25 exporting to image
+#25 exporting layers done
+#25 writing image sha256:40984f876763e1dbd08770acbc42ba91f3ba1541031781af007428937ac913dd done
+#25 naming to docker.io/library/student-fuzzer:final_run_jamestiotio_competition_fuzzer_v3_1717064859 0.0s done
+#25 DONE 0.0s
+STDERR vvvvvvvvvvvvvvvvvv

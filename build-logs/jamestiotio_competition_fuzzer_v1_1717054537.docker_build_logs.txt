@@ -1,0 +1,185 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 997B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/20] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 771.77kB done
+#5 DONE 0.0s
+
+#6 [ 2/20] RUN apt update -y
+#6 CACHED
+
+#7 [ 4/20] RUN useradd participant
+#7 CACHED
+
+#8 [ 3/20] RUN apt install -y git pkg-config libcairo-dev gcc
+#8 CACHED
+
+#9 [ 5/20] WORKDIR /home/participant
+#9 CACHED
+
+#10 [ 6/20] COPY requirements.txt requirements.txt
+#10 CACHED
+
+#11 [ 7/20] RUN pip install -r requirements.txt
+#11 CACHED
+
+#12 [ 8/20] RUN apt install -y g++
+#12 0.217 
+#12 0.217 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#12 0.217 
+#12 0.220 Reading package lists...
+#12 0.664 Building dependency tree...
+#12 0.753 Reading state information...
+#12 0.859 The following additional packages will be installed:
+#12 0.859   g++-12 libstdc++-12-dev
+#12 0.860 Suggested packages:
+#12 0.860   g++-multilib g++-12-multilib gcc-12-doc libstdc++-12-doc
+#12 0.887 The following NEW packages will be installed:
+#12 0.888   g++ g++-12 libstdc++-12-dev
+#12 0.920 0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+#12 0.920 Need to get 12.7 MB of archives.
+#12 0.920 After this operation, 57.0 MB of additional disk space will be used.
+#12 0.920 Get:1 http://deb.debian.org/debian bookworm/main amd64 libstdc++-12-dev amd64 12.2.0-14 [2046 kB]
+#12 1.118 Get:2 http://deb.debian.org/debian bookworm/main amd64 g++-12 amd64 12.2.0-14 [10.7 MB]
+#12 2.013 Get:3 http://deb.debian.org/debian bookworm/main amd64 g++ amd64 4:12.2.0-3 [1356 B]
+#12 2.113 debconf: delaying package configuration, since apt-utils is not installed
+#12 2.130 Fetched 12.7 MB in 1s (11.4 MB/s)
+#12 2.144 Selecting previously unselected package libstdc++-12-dev:amd64.
+#12 2.144 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 18617 files and directories currently installed.)
+#12 2.152 Preparing to unpack .../libstdc++-12-dev_12.2.0-14_amd64.deb ...
+#12 2.153 Unpacking libstdc++-12-dev:amd64 (12.2.0-14) ...
+#12 2.316 Selecting previously unselected package g++-12.
+#12 2.317 Preparing to unpack .../g++-12_12.2.0-14_amd64.deb ...
+#12 2.318 Unpacking g++-12 (12.2.0-14) ...
+#12 2.902 Selecting previously unselected package g++.
+#12 2.904 Preparing to unpack .../g++_4%3a12.2.0-3_amd64.deb ...
+#12 2.904 Unpacking g++ (4:12.2.0-3) ...
+#12 2.919 Setting up libstdc++-12-dev:amd64 (12.2.0-14) ...
+#12 2.920 Setting up g++-12 (12.2.0-14) ...
+#12 2.920 Setting up g++ (4:12.2.0-3) ...
+#12 2.922 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+#12 DONE 3.0s
+
+#13 [ 9/20] COPY atheris.patch atheris.patch
+#13 DONE 0.0s
+
+#14 [10/20] COPY libclang_rt.fuzzer.a libclang_rt.fuzzer.a
+#14 DONE 0.0s
+
+#15 [11/20] RUN git clone https://github.com/google/atheris.git
+#15 0.312 Cloning into 'atheris'...
+#15 DONE 3.8s
+
+#16 [12/20] RUN cp atheris.patch atheris/
+#16 DONE 0.3s
+
+#17 [13/20] RUN cp libclang_rt.fuzzer.a atheris/
+#17 DONE 0.4s
+
+#18 [14/20] WORKDIR atheris/
+#18 DONE 0.0s
+
+#19 [15/20] RUN git apply atheris.patch
+#19 DONE 0.5s
+
+#20 [16/20] RUN LIBFUZZER_LIB=$(pwd)/libclang_rt.fuzzer.a pip install .
+#20 0.624 Processing /home/participant/atheris
+#20 0.626   Installing build dependencies: started
+#20 2.454   Installing build dependencies: finished with status 'done'
+#20 2.455   Getting requirements to build wheel: started
+#20 2.593   Getting requirements to build wheel: finished with status 'done'
+#20 2.595   Installing backend dependencies: started
+#20 3.688   Installing backend dependencies: finished with status 'done'
+#20 3.688   Preparing metadata (pyproject.toml): started
+#20 3.857   Preparing metadata (pyproject.toml): finished with status 'done'
+#20 3.861 Building wheels for collected packages: atheris
+#20 3.862   Building wheel for atheris (pyproject.toml): started
+#20 64.76   Building wheel for atheris (pyproject.toml): still running...
+#20 107.0   Building wheel for atheris (pyproject.toml): finished with status 'done'
+#20 107.0   Created wheel for atheris: filename=atheris-2.3.0-cp310-cp310-linux_x86_64.whl size=11815949 sha256=1cb865089aa89d48f1e083143e04b6a3cd56788087a38619f9fcb0981b4f5035
+#20 107.0   Stored in directory: /tmp/pip-ephem-wheel-cache-g7hagegj/wheels/a4/72/f5/8d60b7f42147186395bf6a01770097cb9f9bf0be5942dff8c2
+#20 107.0 Successfully built atheris
+#20 107.6 Installing collected packages: atheris
+#20 107.8 Successfully installed atheris-2.3.0
+#20 107.8 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#20 107.8 
+#20 107.8 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#20 107.8 [notice] To update, run: pip install --upgrade pip
+#20 DONE 108.0s
+
+#21 [17/20] WORKDIR ../
+#21 DONE 0.0s
+
+#22 [18/20] RUN pip install crosshair-tool
+#22 1.156 Collecting crosshair-tool
+#22 1.201   Downloading crosshair_tool-0.0.54-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (459 kB)
+#22 1.249      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 459.2/459.2 kB 10.1 MB/s eta 0:00:00
+#22 1.302 Collecting typing-extensions>=3.10.0
+#22 1.306   Downloading typing_extensions-4.12.0-py3-none-any.whl (37 kB)
+#22 1.336 Collecting typeshed-client>=2.0.5
+#22 1.341   Downloading typeshed_client-2.5.1-py3-none-any.whl (606 kB)
+#22 1.394      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 606.1/606.1 kB 11.6 MB/s eta 0:00:00
+#22 1.475 Collecting importlib-metadata>=4.0.0
+#22 1.480   Downloading importlib_metadata-7.1.0-py3-none-any.whl (24 kB)
+#22 1.510 Collecting pygls>=1.0.0
+#22 1.514   Downloading pygls-1.3.1-py3-none-any.whl (56 kB)
+#22 1.520      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.0/56.0 kB 13.3 MB/s eta 0:00:00
+#22 1.889 Collecting z3-solver==4.11.2.0
+#22 1.895   Downloading z3_solver-4.11.2.0-py2.py3-none-manylinux1_x86_64.whl (53.8 MB)
+#22 6.584      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.8/53.8 MB 9.9 MB/s eta 0:00:00
+#22 6.733 Collecting typing-inspect>=0.7.1
+#22 6.738   Downloading typing_inspect-0.9.0-py3-none-any.whl (8.8 kB)
+#22 6.740 Requirement already satisfied: packaging in /usr/local/lib/python3.10/site-packages (from crosshair-tool) (23.1)
+#22 6.796 Collecting zipp>=0.5
+#22 6.800   Downloading zipp-3.19.0-py3-none-any.whl (8.3 kB)
+#22 6.825 Collecting lsprotocol==2023.0.1
+#22 6.830   Downloading lsprotocol-2023.0.1-py3-none-any.whl (70 kB)
+#22 6.837      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.8/70.8 kB 11.3 MB/s eta 0:00:00
+#22 6.863 Collecting cattrs>=23.1.2
+#22 6.868   Downloading cattrs-23.2.3-py3-none-any.whl (57 kB)
+#22 6.873      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.5/57.5 kB 15.0 MB/s eta 0:00:00
+#22 6.877 Requirement already satisfied: attrs>=21.3.0 in /usr/local/lib/python3.10/site-packages (from lsprotocol==2023.0.1->pygls>=1.0.0->crosshair-tool) (23.1.0)
+#22 6.938 Collecting importlib-resources>=1.4.0
+#22 6.942   Downloading importlib_resources-6.4.0-py3-none-any.whl (38 kB)
+#22 6.970 Collecting mypy-extensions>=0.3.0
+#22 6.974   Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+#22 6.996 Requirement already satisfied: exceptiongroup>=1.1.1 in /usr/local/lib/python3.10/site-packages (from cattrs>=23.1.2->pygls>=1.0.0->crosshair-tool) (1.1.1)
+#22 7.677 Installing collected packages: z3-solver, zipp, typing-extensions, mypy-extensions, importlib-resources, typing-inspect, typeshed-client, importlib-metadata, cattrs, lsprotocol, pygls, crosshair-tool
+#22 7.677   Attempting uninstall: z3-solver
+#22 7.677     Found existing installation: z3-solver 4.12.2.0
+#22 7.682     Uninstalling z3-solver-4.12.2.0:
+#22 7.930       Successfully uninstalled z3-solver-4.12.2.0
+#22 9.349 Successfully installed cattrs-23.2.3 crosshair-tool-0.0.54 importlib-metadata-7.1.0 importlib-resources-6.4.0 lsprotocol-2023.0.1 mypy-extensions-1.0.0 pygls-1.3.1 typeshed-client-2.5.1 typing-extensions-4.12.0 typing-inspect-0.9.0 z3-solver-4.11.2.0 zipp-3.19.0
+#22 9.350 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#22 9.353 
+#22 9.353 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#22 9.353 [notice] To update, run: pip install --upgrade pip
+#22 DONE 9.6s
+
+#23 [19/20] COPY *.py ./
+#23 DONE 0.0s
+
+#24 [20/20] COPY examples ./examples
+#24 DONE 0.1s
+
+#25 exporting to image
+#25 exporting layers
+#25 exporting layers 0.8s done
+#25 writing image sha256:f1b17df360136bfdc504eb7d9f6a345e428d1a4f518bf992dfdaf0963f084503 done
+#25 naming to docker.io/library/student-fuzzer:jamestiotio_competition_fuzzer_v1_1717054537 0.0s done
+#25 DONE 0.8s
+STDERR vvvvvvvvvvvvvvvvvv

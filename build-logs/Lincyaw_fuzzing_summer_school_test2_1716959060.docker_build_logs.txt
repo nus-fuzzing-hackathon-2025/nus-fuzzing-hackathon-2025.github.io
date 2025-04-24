@@ -1,0 +1,51 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 626B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/9] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 8.52kB done
+#5 DONE 0.0s
+
+#6 [6/9] COPY requirements.txt requirements.txt
+#6 CACHED
+
+#7 [3/9] RUN apt install -y git pkg-config libcairo-dev gcc
+#7 CACHED
+
+#8 [5/9] WORKDIR /home/participant
+#8 CACHED
+
+#9 [4/9] RUN useradd participant
+#9 CACHED
+
+#10 [2/9] RUN apt update -y
+#10 CACHED
+
+#11 [7/9] RUN pip install -r requirements.txt
+#11 CACHED
+
+#12 [8/9] COPY *.py ./
+#12 DONE 0.1s
+
+#13 [9/9] COPY examples ./examples
+#13 DONE 0.0s
+
+#14 exporting to image
+#14 exporting layers done
+#14 writing image sha256:3760504db0aba807291b3408c092f5d2ed9d6d8eaba02ad54387dad34f4209e3 done
+#14 naming to docker.io/library/student-fuzzer:Lincyaw_fuzzing_summer_school_test2_1716959060 done
+#14 DONE 0.0s
+STDERR vvvvvvvvvvvvvvvvvv

@@ -1,0 +1,78 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 962B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/18] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 20.58MB 0.1s done
+#5 DONE 0.1s
+
+#6 [14/18] RUN git apply patch.diff
+#6 CACHED
+
+#7 [ 4/18] RUN useradd participant
+#7 CACHED
+
+#8 [ 7/18] COPY patch.diff patch.diff
+#8 CACHED
+
+#9 [ 5/18] WORKDIR /home/participant
+#9 CACHED
+
+#10 [12/18] RUN cp libclang_rt.fuzzer.a atheris/
+#10 CACHED
+
+#11 [ 6/18] COPY requirements.txt requirements.txt
+#11 CACHED
+
+#12 [ 3/18] RUN apt install -y git pkg-config libcairo-dev gcc g++
+#12 CACHED
+
+#13 [13/18] WORKDIR atheris
+#13 CACHED
+
+#14 [ 9/18] RUN pip install -r requirements.txt
+#14 CACHED
+
+#15 [ 2/18] RUN apt update -y
+#15 CACHED
+
+#16 [ 8/18] COPY libclang_rt.fuzzer.a libclang_rt.fuzzer.a
+#16 CACHED
+
+#17 [11/18] RUN cp patch.diff atheris/
+#17 CACHED
+
+#18 [10/18] RUN git clone https://github.com/google/atheris.git
+#18 CACHED
+
+#19 [15/18] RUN LIBFUZZER_LIB=$(pwd)/libclang_rt.fuzzer.a pip3 install .
+#19 CACHED
+
+#20 [16/18] WORKDIR ../
+#20 CACHED
+
+#21 [17/18] COPY *.py ./
+#21 DONE 0.1s
+
+#22 [18/18] COPY examples ./examples
+#22 DONE 0.0s
+
+#23 exporting to image
+#23 exporting layers done
+#23 writing image sha256:fa2e6181e49c53eac31595f9fd26847ea36c422d5f8e2abe4c3696437cb19772 done
+#23 naming to docker.io/library/student-fuzzer:mo_bl_competition_fuzzer_another_one_v12_3_1717061158 0.0s done
+#23 DONE 0.0s
+STDERR vvvvvvvvvvvvvvvvvv

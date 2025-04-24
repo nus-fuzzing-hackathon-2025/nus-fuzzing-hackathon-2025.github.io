@@ -1,0 +1,57 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 989B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 8.11kB done
+#5 DONE 0.0s
+
+#6 [ 2/11] RUN apt update -y
+#6 CACHED
+
+#7 [ 6/11] COPY requirements.txt requirements.txt
+#7 CACHED
+
+#8 [ 7/11] RUN pip install -r requirements.txt
+#8 CACHED
+
+#9 [ 5/11] WORKDIR /home/participant
+#9 CACHED
+
+#10 [ 8/11] RUN apt install -y -q clang
+#10 CACHED
+
+#11 [ 3/11] RUN apt install -y git pkg-config libcairo-dev gcc
+#11 CACHED
+
+#12 [ 4/11] RUN useradd participant
+#12 CACHED
+
+#13 [ 9/11] RUN pip install --no-binary atheris atheris
+#13 CACHED
+
+#14 [10/11] COPY *.py ./
+#14 DONE 0.1s
+
+#15 [11/11] COPY examples ./examples
+#15 DONE 0.0s
+
+#16 exporting to image
+#16 exporting layers done
+#16 writing image sha256:f6ab493b0ac594479772251cba8175178864a21096128bd0c5e1774bc13c2e4a done
+#16 naming to docker.io/library/student-fuzzer:ide0x90_fuzzy_wuzzy_low_plus_one12_tec_1717057443 0.0s done
+#16 DONE 0.0s
+STDERR vvvvvvvvvvvvvvvvvv

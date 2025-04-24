@@ -1,0 +1,677 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.13kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/17] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 74.27kB done
+#5 DONE 0.0s
+
+#6 [ 2/17] RUN apt update -y
+#6 CACHED
+
+#7 [ 6/17] COPY requirements.txt requirements.txt
+#7 CACHED
+
+#8 [ 3/17] RUN apt install -y git pkg-config libcairo-dev gcc
+#8 CACHED
+
+#9 [ 7/17] RUN pip install -r requirements.txt
+#9 CACHED
+
+#10 [ 5/17] WORKDIR /home/participant
+#10 CACHED
+
+#11 [ 4/17] RUN useradd participant
+#11 CACHED
+
+#12 [ 8/17] COPY fuzzer fuzzer
+#12 CACHED
+
+#13 [ 9/17] COPY *.py ./
+#13 DONE 0.0s
+
+#14 [10/17] COPY examples ./examples
+#14 DONE 0.0s
+
+#15 [11/17] COPY zshrc /root/.zshrc
+#15 DONE 0.0s
+
+#16 [12/17] RUN apt install -y curl zsh powerline fonts-powerline libpython3-dev wget
+#16 0.195 
+#16 0.195 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#16 0.195 
+#16 0.197 Reading package lists...
+#16 0.606 Building dependency tree...
+#16 0.683 Reading state information...
+#16 0.782 The following additional packages will be installed:
+#16 0.782   fontconfig libcurl4 libpcre3 libpython3.11 libpython3.11-dev
+#16 0.782   python3-powerline python3-psutil zsh-common
+#16 0.783 Suggested packages:
+#16 0.783   powerline-doc python3-i3ipc vim-addon-manager python-psutil-doc zsh-doc
+#16 0.930 The following NEW packages will be installed:
+#16 0.930   curl fontconfig fonts-powerline libcurl4 libpcre3 libpython3-dev
+#16 0.930   libpython3.11 libpython3.11-dev powerline python3-powerline python3-psutil
+#16 0.930   wget zsh zsh-common
+#16 0.970 0 upgraded, 14 newly installed, 0 to remove and 0 not upgraded.
+#16 0.970 Need to get 14.6 MB of archives.
+#16 0.970 After this operation, 61.9 MB of additional disk space will be used.
+#16 0.970 Get:1 http://deb.debian.org/debian bookworm/main amd64 wget amd64 1.21.3-1+b2 [984 kB]
+#16 1.091 Get:2 http://deb.debian.org/debian bookworm/main amd64 libcurl4 amd64 7.88.1-10+deb12u5 [390 kB]
+#16 1.140 Get:3 http://deb.debian.org/debian bookworm/main amd64 curl amd64 7.88.1-10+deb12u5 [315 kB]
+#16 1.167 Get:4 http://deb.debian.org/debian bookworm/main amd64 fontconfig amd64 2.14.1-4 [449 kB]
+#16 1.206 Get:5 http://deb.debian.org/debian bookworm/main amd64 fonts-powerline all 2.8.3-4 [5568 B]
+#16 1.206 Get:6 http://deb.debian.org/debian bookworm/main amd64 libpcre3 amd64 2:8.39-15 [341 kB]
+#16 1.483 Get:7 http://deb.debian.org/debian bookworm/main amd64 libpython3.11 amd64 3.11.2-6 [1988 kB]
+#16 1.659 Get:8 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-dev amd64 3.11.2-6 [4738 kB]
+#16 2.069 Get:9 http://deb.debian.org/debian bookworm/main amd64 libpython3-dev amd64 3.11.2-1+b1 [9572 B]
+#16 2.069 Get:10 http://deb.debian.org/debian bookworm/main amd64 python3-psutil amd64 5.9.4-1+b1 [189 kB]
+#16 2.084 Get:11 http://deb.debian.org/debian bookworm/main amd64 python3-powerline all 2.8.3-4 [130 kB]
+#16 2.084 Get:12 http://deb.debian.org/debian bookworm/main amd64 powerline amd64 2.8.3-4 [52.2 kB]
+#16 2.088 Get:13 http://deb.debian.org/debian bookworm/main amd64 zsh-common all 5.9-4 [4147 kB]
+#16 2.434 Get:14 http://deb.debian.org/debian bookworm/main amd64 zsh amd64 5.9-4+b2 [908 kB]
+#16 2.607 debconf: delaying package configuration, since apt-utils is not installed
+#16 2.626 Fetched 14.6 MB in 2s (9300 kB/s)
+#16 2.638 Selecting previously unselected package wget.
+#16 2.638 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 18617 files and directories currently installed.)
+#16 2.645 Preparing to unpack .../00-wget_1.21.3-1+b2_amd64.deb ...
+#16 2.646 Unpacking wget (1.21.3-1+b2) ...
+#16 2.710 Selecting previously unselected package libcurl4:amd64.
+#16 2.711 Preparing to unpack .../01-libcurl4_7.88.1-10+deb12u5_amd64.deb ...
+#16 2.712 Unpacking libcurl4:amd64 (7.88.1-10+deb12u5) ...
+#16 2.744 Selecting previously unselected package curl.
+#16 2.745 Preparing to unpack .../02-curl_7.88.1-10+deb12u5_amd64.deb ...
+#16 2.746 Unpacking curl (7.88.1-10+deb12u5) ...
+#16 2.778 Selecting previously unselected package fontconfig.
+#16 2.779 Preparing to unpack .../03-fontconfig_2.14.1-4_amd64.deb ...
+#16 2.779 Unpacking fontconfig (2.14.1-4) ...
+#16 2.800 Selecting previously unselected package fonts-powerline.
+#16 2.800 Preparing to unpack .../04-fonts-powerline_2.8.3-4_all.deb ...
+#16 2.801 Unpacking fonts-powerline (2.8.3-4) ...
+#16 2.811 Selecting previously unselected package libpcre3:amd64.
+#16 2.812 Preparing to unpack .../05-libpcre3_2%3a8.39-15_amd64.deb ...
+#16 2.813 Unpacking libpcre3:amd64 (2:8.39-15) ...
+#16 2.848 Selecting previously unselected package libpython3.11:amd64.
+#16 2.848 Preparing to unpack .../06-libpython3.11_3.11.2-6_amd64.deb ...
+#16 2.849 Unpacking libpython3.11:amd64 (3.11.2-6) ...
+#16 3.002 Selecting previously unselected package libpython3.11-dev:amd64.
+#16 3.003 Preparing to unpack .../07-libpython3.11-dev_3.11.2-6_amd64.deb ...
+#16 3.003 Unpacking libpython3.11-dev:amd64 (3.11.2-6) ...
+#16 3.347 Selecting previously unselected package libpython3-dev:amd64.
+#16 3.348 Preparing to unpack .../08-libpython3-dev_3.11.2-1+b1_amd64.deb ...
+#16 3.348 Unpacking libpython3-dev:amd64 (3.11.2-1+b1) ...
+#16 3.360 Selecting previously unselected package python3-psutil.
+#16 3.361 Preparing to unpack .../09-python3-psutil_5.9.4-1+b1_amd64.deb ...
+#16 3.362 Unpacking python3-psutil (5.9.4-1+b1) ...
+#16 3.385 Selecting previously unselected package python3-powerline.
+#16 3.385 Preparing to unpack .../10-python3-powerline_2.8.3-4_all.deb ...
+#16 3.386 Unpacking python3-powerline (2.8.3-4) ...
+#16 3.411 Selecting previously unselected package powerline.
+#16 3.412 Preparing to unpack .../11-powerline_2.8.3-4_amd64.deb ...
+#16 3.412 Unpacking powerline (2.8.3-4) ...
+#16 3.436 Selecting previously unselected package zsh-common.
+#16 3.437 Preparing to unpack .../12-zsh-common_5.9-4_all.deb ...
+#16 3.441 Unpacking zsh-common (5.9-4) ...
+#16 3.691 Selecting previously unselected package zsh.
+#16 3.693 Preparing to unpack .../13-zsh_5.9-4+b2_amd64.deb ...
+#16 3.697 Unpacking zsh (5.9-4+b2) ...
+#16 3.768 Setting up fontconfig (2.14.1-4) ...
+#16 3.771 Regenerating fonts cache... done.
+#16 5.784 Setting up libpython3.11:amd64 (3.11.2-6) ...
+#16 5.785 Setting up wget (1.21.3-1+b2) ...
+#16 5.786 Setting up zsh-common (5.9-4) ...
+#16 5.800 Setting up python3-psutil (5.9.4-1+b1) ...
+#16 5.998 Setting up libpcre3:amd64 (2:8.39-15) ...
+#16 6.000 Setting up libpython3.11-dev:amd64 (3.11.2-6) ...
+#16 6.000 Setting up libcurl4:amd64 (7.88.1-10+deb12u5) ...
+#16 6.002 Setting up curl (7.88.1-10+deb12u5) ...
+#16 6.003 Setting up zsh (5.9-4+b2) ...
+#16 6.010 Setting up fonts-powerline (2.8.3-4) ...
+#16 6.012 Setting up python3-powerline (2.8.3-4) ...
+#16 6.199 Setting up libpython3-dev:amd64 (3.11.2-1+b1) ...
+#16 6.200 Setting up powerline (2.8.3-4) ...
+#16 6.255 debconf: unable to initialize frontend: Dialog
+#16 6.255 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#16 6.255 debconf: falling back to frontend: Readline
+#16 6.260 debconf: unable to initialize frontend: Readline
+#16 6.260 debconf: (This frontend requires a controlling tty.)
+#16 6.260 debconf: falling back to frontend: Teletype
+#16 6.455 Processing triggers for libc-bin (2.36-9+deb12u7) ...
+#16 6.466 Processing triggers for debianutils (5.7-0.5~deb12u1) ...
+#16 6.498 Processing triggers for fontconfig (2.14.1-4) ...
+#16 DONE 6.6s
+
+#17 [13/17] RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | bash -s -- -y --default-toolchain nightly-2024-05-28
+#17 0.977 info: downloading installer
+#17 2.354 info: profile set to 'default'
+#17 2.354 info: default host triple is x86_64-unknown-linux-gnu
+#17 2.354 info: syncing channel updates for 'nightly-2024-05-28-x86_64-unknown-linux-gnu'
+#17 2.470 info: latest update on 2024-05-28, rust version 1.80.0-nightly (84b40fc90 2024-05-27)
+#17 2.470 info: downloading component 'cargo'
+#17 5.093 info: downloading component 'clippy'
+#17 7.271 info: downloading component 'rust-docs'
+#17 12.33 info: downloading component 'rust-std'
+#17 20.22 info: downloading component 'rustc'
+#17 46.53 info: downloading component 'rustfmt'
+#17 47.48 info: installing component 'cargo'
+#17 48.11 info: installing component 'clippy'
+#17 48.37 info: installing component 'rust-docs'
+#17 49.95 info: installing component 'rust-std'
+#17 51.86 info: installing component 'rustc'
+#17 56.04 info: installing component 'rustfmt'
+#17 56.35 
+#17 56.35 info: default toolchain set to 'nightly-2024-05-28-x86_64-unknown-linux-gnu'
+#17 56.36   nightly-2024-05-28-x86_64-unknown-linux-gnu installed - rustc 1.80.0-nightly (84b40fc90 2024-05-27)
+#17 56.36 
+#17 56.36 
+#17 56.36 Rust is installed now. Great!
+#17 56.36 
+#17 56.36 To get started you may need to restart your current shell.
+#17 56.36 This would reload your PATH environment variable to include
+#17 56.36 Cargo's bin directory ($HOME/.cargo/bin).
+#17 56.36 
+#17 56.36 To configure your current shell, you need to source
+#17 56.36 the corresponding env file under $HOME/.cargo.
+#17 56.36 
+#17 56.36 This is usually done by running one of the following (note the leading DOT):
+#17 56.36 . "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+#17 56.36 source "$HOME/.cargo/env.fish"  # For fish
+#17 DONE 57.5s
+
+#18 [14/17] RUN cd fuzzer && cargo build --release
+#18 0.304     Updating crates.io index
+#18 3.170  Downloading crates ...
+#18 3.232   Downloaded anstream v0.6.14
+#18 3.234   Downloaded anstyle-parse v0.2.4
+#18 3.252   Downloaded aho-corasick v1.1.3
+#18 3.261   Downloaded ahash v0.8.11
+#18 3.264   Downloaded anstyle-query v1.0.3
+#18 3.265   Downloaded serde v1.0.203
+#18 3.270   Downloaded adler v1.0.2
+#18 3.271   Downloaded anstyle v1.0.7
+#18 3.272   Downloaded addr2line v0.21.0
+#18 3.275   Downloaded serial_test_derive v2.0.0
+#18 3.276   Downloaded ryu v1.0.18
+#18 3.278   Downloaded home v0.5.9
+#18 3.291   Downloaded serde_derive v1.0.203
+#18 3.297   Downloaded typewit_proc_macros v1.8.1
+#18 3.303   Downloaded c2rust-bitfields v0.18.0
+#18 3.306   Downloaded libafl_derive v0.12.0
+#18 3.318   Downloaded cassowary v0.3.0
+#18 3.320   Downloaded backtrace v0.3.71
+#18 3.325   Downloaded strum v0.25.0
+#18 3.326   Downloaded unindent v0.2.3
+#18 3.332   Downloaded scopeguard v1.2.0
+#18 3.334   Downloaded c2rust-bitfields-derive v0.18.0
+#18 3.339   Downloaded shlex v1.3.0
+#18 3.340   Downloaded serial_test v2.0.0
+#18 3.341   Downloaded is_terminal_polyfill v1.70.0
+#18 3.343   Downloaded tuple_list v0.1.3
+#18 3.343   Downloaded static_assertions v1.1.0
+#18 3.345   Downloaded typed-builder-macro v0.16.2
+#18 3.346   Downloaded strum_macros v0.25.3
+#18 3.348   Downloaded wait-timeout v0.2.0
+#18 3.349   Downloaded strsim v0.11.1
+#18 3.350   Downloaded version_check v0.9.4
+#18 3.351   Downloaded unicode-xid v0.2.4
+#18 3.360   Downloaded utf8parse v0.2.1
+#18 3.363   Downloaded typed-builder v0.16.2
+#18 3.367   Downloaded xxhash-rust v0.8.10
+#18 3.373   Downloaded signal-hook-mio v0.2.3
+#18 3.378   Downloaded which v4.4.2
+#18 3.380   Downloaded meminterval v0.4.1
+#18 3.382   Downloaded smallvec v1.13.2
+#18 3.384   Downloaded unicode-width v0.1.12
+#18 3.386   Downloaded target-lexicon v0.12.14
+#18 3.388   Downloaded signal-hook-registry v1.4.2
+#18 3.398   Downloaded indoc v2.0.5
+#18 3.400   Downloaded itoa v1.0.11
+#18 3.403   Downloaded unicode-ident v1.0.12
+#18 3.406   Downloaded signal-hook v0.3.17
+#18 3.409   Downloaded mimalloc v0.1.42
+#18 3.418   Downloaded uds v0.4.2
+#18 3.426   Downloaded match_cfg v0.1.0
+#18 3.429   Downloaded uuid v1.8.0
+#18 3.432   Downloaded serde_json v1.0.117
+#18 3.441   Downloaded typewit v1.9.0
+#18 3.448   Downloaded unicode-segmentation v1.11.0
+#18 3.464   Downloaded ctor v0.2.8
+#18 3.464   Downloaded colorchoice v1.0.1
+#18 3.469   Downloaded cexpr v0.6.0
+#18 3.479   Downloaded zerocopy v0.7.34
+#18 3.493   Downloaded lazy_static v1.4.0
+#18 3.494   Downloaded hostname v0.3.1
+#18 3.495   Downloaded errno v0.3.9
+#18 3.496   Downloaded either v1.12.0
+#18 3.498   Downloaded autocfg v1.3.0
+#18 3.499   Downloaded syn v1.0.109
+#18 3.509   Downloaded syn v2.0.66
+#18 3.521   Downloaded glob v0.3.1
+#18 3.522   Downloaded cobs v0.2.3
+#18 3.523   Downloaded bincode v1.3.3
+#18 3.525   Downloaded content_inspector v0.2.4
+#18 3.527   Downloaded cfg-if v1.0.0
+#18 3.528   Downloaded heck v0.4.1
+#18 3.538   Downloaded num_enum v0.7.2
+#18 3.542   Downloaded memoffset v0.9.1
+#18 3.544   Downloaded embedded-io v0.4.0
+#18 3.555   Downloaded rustversion v1.0.17
+#18 3.557   Downloaded rustc-hash v1.1.0
+#18 3.558   Downloaded pyo3-macros v0.21.2
+#18 3.566   Downloaded erased-serde v0.3.31
+#18 3.570   Downloaded rand_core v0.6.4
+#18 3.571   Downloaded paste v1.0.15
+#18 3.574   Downloaded getrandom v0.2.15
+#18 3.576   Downloaded clap_lex v0.7.0
+#18 3.577   Downloaded dashmap v5.5.3
+#18 3.579   Downloaded lazycell v1.3.0
+#18 3.583   Downloaded const_format_proc_macros v0.2.32
+#18 3.586   Downloaded pyo3-build-config v0.21.2
+#18 3.587   Downloaded itertools v0.12.1
+#18 3.594   Downloaded quote v1.0.36
+#18 3.596   Downloaded jobserver v0.1.31
+#18 3.598   Downloaded parking_lot_core v0.9.10
+#18 3.604   Downloaded once_cell v1.19.0
+#18 3.612   Downloaded lock_api v0.4.12
+#18 3.616   Downloaded num_enum_derive v0.7.2
+#18 3.636   Downloaded rustc-demangle v0.1.24
+#18 3.638   Downloaded libafl_targets v0.12.0
+#18 3.640   Downloaded clang-sys v1.8.0
+#18 3.646   Downloaded bitflags v2.5.0
+#18 3.651   Downloaded parking_lot v0.12.3
+#18 3.654   Downloaded const_panic v0.2.8
+#18 3.658   Downloaded num-traits v0.2.19
+#18 3.676   Downloaded proc-macro2 v1.0.84
+#18 3.679   Downloaded miniz_oxide v0.7.3
+#18 3.681   Downloaded log v0.4.21
+#18 3.683   Downloaded libloading v0.8.3
+#18 3.685   Downloaded clap v4.5.4
+#18 3.692   Downloaded postcard v1.0.8
+#18 3.699   Downloaded prettyplease v0.2.20
+#18 3.706   Downloaded rangemap v1.5.1
+#18 3.718   Downloaded pyo3-macros-backend v0.21.2
+#18 3.720   Downloaded const_format v0.2.32
+#18 3.724   Downloaded pyo3-ffi v0.21.2
+#18 3.729   Downloaded cc v1.0.98
+#18 3.760   Downloaded memchr v2.7.2
+#18 3.765   Downloaded itertools v0.11.0
+#18 3.774   Downloaded minimal-lexical v0.2.1
+#18 3.778   Downloaded mio v0.8.11
+#18 3.803   Downloaded nom v7.1.3
+#18 3.808   Downloaded libafl_bolts v0.12.0
+#18 3.812   Downloaded hashbrown v0.14.5
+#18 3.817   Downloaded libm v0.2.8
+#18 3.824   Downloaded crossterm v0.27.0
+#18 3.851   Downloaded portable-atomic v1.6.0
+#18 3.857   Downloaded clap_builder v4.5.2
+#18 3.912   Downloaded libmimalloc-sys v0.1.38
+#18 3.926   Downloaded bindgen v0.69.4
+#18 3.949   Downloaded gimli v0.28.1
+#18 3.975   Downloaded ratatui v0.23.0
+#18 3.986   Downloaded regex v1.10.4
+#18 4.000   Downloaded nix v0.27.1
+#18 4.017   Downloaded libafl v0.12.0
+#18 4.030   Downloaded object v0.32.2
+#18 4.041   Downloaded regex-syntax v0.8.3
+#18 4.051   Downloaded rustix v0.38.34
+#18 4.079   Downloaded pyo3 v0.21.2
+#18 4.124   Downloaded regex-automata v0.4.6
+#18 4.145   Downloaded libc v0.2.155
+#18 4.237   Downloaded linux-raw-sys v0.4.14
+#18 4.330    Compiling proc-macro2 v1.0.84
+#18 4.330    Compiling unicode-ident v1.0.12
+#18 4.330    Compiling libc v0.2.155
+#18 4.330    Compiling once_cell v1.19.0
+#18 4.330    Compiling autocfg v1.3.0
+#18 4.330    Compiling cfg-if v1.0.0
+#18 4.331    Compiling serde v1.0.203
+#18 4.331    Compiling rustversion v1.0.17
+#18 4.331    Compiling target-lexicon v0.12.14
+#18 4.334    Compiling parking_lot_core v0.9.10
+#18 4.336    Compiling scopeguard v1.2.0
+#18 4.339    Compiling smallvec v1.13.2
+#18 4.340    Compiling version_check v0.9.4
+#18 4.342    Compiling memchr v2.7.2
+#18 4.342    Compiling glob v0.3.1
+#18 4.344    Compiling log v0.4.21
+#18 4.348    Compiling heck v0.4.1
+#18 4.349    Compiling prettyplease v0.2.20
+#18 4.349    Compiling signal-hook v0.3.17
+#18 4.349    Compiling zerocopy v0.7.34
+#18 4.349    Compiling rustix v0.38.34
+#18 4.349    Compiling syn v1.0.109
+#18 4.349    Compiling regex-syntax v0.8.3
+#18 4.349    Compiling minimal-lexical v0.2.1
+#18 4.349    Compiling bitflags v2.5.0
+#18 4.349    Compiling either v1.12.0
+#18 4.349    Compiling linux-raw-sys v0.4.14
+#18 4.350    Compiling adler v1.0.2
+#18 4.351    Compiling bindgen v0.69.4
+#18 4.351    Compiling gimli v0.28.1
+#18 4.351    Compiling serde_json v1.0.117
+#18 4.351    Compiling paste v1.0.15
+#18 4.351    Compiling home v0.5.9
+#18 4.351    Compiling utf8parse v0.2.1
+#18 4.351    Compiling typewit_proc_macros v1.8.1
+#18 4.351    Compiling embedded-io v0.4.0
+#18 4.351    Compiling shlex v1.3.0
+#18 4.351    Compiling rustc-hash v1.1.0
+#18 4.351    Compiling lazy_static v1.4.0
+#18 4.351    Compiling lazycell v1.3.0
+#18 4.351    Compiling rustc-demangle v0.1.24
+#18 4.352    Compiling libm v0.2.8
+#18 4.352    Compiling cobs v0.2.3
+#18 4.352    Compiling itoa v1.0.11
+#18 4.352    Compiling match_cfg v0.1.0
+#18 4.352    Compiling ryu v1.0.18
+#18 4.352    Compiling indoc v2.0.5
+#18 4.352    Compiling unicode-xid v0.2.4
+#18 4.352    Compiling unicode-segmentation v1.11.0
+#18 4.352    Compiling portable-atomic v1.6.0
+#18 4.352    Compiling cassowary v0.3.0
+#18 4.352    Compiling tuple_list v0.1.3
+#18 4.352    Compiling anstyle-query v1.0.3
+#18 4.352    Compiling is_terminal_polyfill v1.70.0
+#18 4.352    Compiling unicode-width v0.1.12
+#18 4.352    Compiling static_assertions v1.1.0
+#18 4.352    Compiling anstyle v1.0.7
+#18 4.352    Compiling xxhash-rust v0.8.10
+#18 4.353    Compiling rand_core v0.6.4
+#18 4.353    Compiling colorchoice v1.0.1
+#18 4.353    Compiling clap_lex v0.7.0
+#18 4.353    Compiling strsim v0.11.1
+#18 4.353    Compiling unindent v0.2.3
+#18 4.353    Compiling rangemap v1.5.1
+#18 4.517    Compiling lock_api v0.4.12
+#18 4.526    Compiling memoffset v0.9.1
+#18 4.531    Compiling num-traits v0.2.19
+#18 4.543    Compiling libloading v0.8.3
+#18 4.547    Compiling clang-sys v1.8.0
+#18 4.608    Compiling anstyle-parse v0.2.4
+#18 4.626    Compiling ahash v0.8.11
+#18 4.650    Compiling typewit v1.9.0
+#18 4.674    Compiling miniz_oxide v0.7.3
+#18 4.688    Compiling itertools v0.12.1
+#18 4.767    Compiling itertools v0.11.0
+#18 4.772    Compiling aho-corasick v1.1.3
+#18 4.772    Compiling object v0.32.2
+#18 4.781    Compiling content_inspector v0.2.4
+#18 4.791    Compiling nom v7.1.3
+#18 4.828    Compiling anstream v0.6.14
+#18 4.840    Compiling const_panic v0.2.8
+#18 4.958    Compiling pyo3-build-config v0.21.2
+#18 4.979    Compiling quote v1.0.36
+#18 4.983    Compiling clap_builder v4.5.2
+#18 4.988    Compiling libafl_bolts v0.12.0
+#18 4.988    Compiling libafl v0.12.0
+#18 5.094    Compiling jobserver v0.1.31
+#18 5.101    Compiling syn v2.0.66
+#18 5.154    Compiling const_format_proc_macros v0.2.32
+#18 5.233    Compiling cc v1.0.98
+#18 5.509    Compiling regex-automata v0.4.6
+#18 5.603    Compiling const_format v0.2.32
+#18 5.745    Compiling signal-hook-registry v1.4.2
+#18 5.745    Compiling mio v0.8.11
+#18 5.745    Compiling getrandom v0.2.15
+#18 5.745    Compiling nix v0.27.1
+#18 5.745    Compiling uds v0.4.2
+#18 5.745    Compiling hostname v0.3.1
+#18 5.745    Compiling wait-timeout v0.2.0
+#18 5.786    Compiling pyo3-ffi v0.21.2
+#18 5.786    Compiling pyo3 v0.21.2
+#18 5.895    Compiling parking_lot v0.12.3
+#18 5.974    Compiling backtrace v0.3.71
+#18 5.974    Compiling libmimalloc-sys v0.1.38
+#18 6.023    Compiling signal-hook-mio v0.2.3
+#18 6.028    Compiling which v4.4.2
+#18 6.065    Compiling crossterm v0.27.0
+#18 6.089    Compiling cexpr v0.6.0
+#18 6.330    Compiling addr2line v0.21.0
+#18 6.660    Compiling regex v1.10.4
+#18 6.764    Compiling clap v4.5.4
+#18 7.171    Compiling c2rust-bitfields-derive v0.18.0
+#18 7.401    Compiling c2rust-bitfields v0.18.0
+#18 7.566    Compiling pyo3-macros-backend v0.21.2
+#18 7.957    Compiling serde_derive v1.0.203
+#18 7.958    Compiling strum_macros v0.25.3
+#18 7.958    Compiling num_enum_derive v0.7.2
+#18 7.958    Compiling serial_test_derive v2.0.0
+#18 7.958    Compiling typed-builder-macro v0.16.2
+#18 7.958    Compiling ctor v0.2.8
+#18 7.958    Compiling libafl_derive v0.12.0
+#18 8.380    Compiling num_enum v0.7.2
+#18 8.437    Compiling typed-builder v0.16.2
+#18 8.695    Compiling strum v0.25.0
+#18 8.731    Compiling ratatui v0.23.0
+#18 9.079    Compiling mimalloc v0.1.42
+#18 9.406    Compiling pyo3-macros v0.21.2
+#18 11.13    Compiling libafl_targets v0.12.0
+#18 11.96    Compiling hashbrown v0.14.5
+#18 11.96    Compiling postcard v1.0.8
+#18 11.96    Compiling erased-serde v0.3.31
+#18 11.96    Compiling uuid v1.8.0
+#18 11.96    Compiling meminterval v0.4.1
+#18 11.96    Compiling bincode v1.3.3
+#18 12.50    Compiling dashmap v5.5.3
+#18 12.76    Compiling serial_test v2.0.0
+#18 37.34    Compiling summerschool v0.0.1 (/home/participant/fuzzer)
+#18 37.38 warning: unused import: `Path`
+#18 37.38   --> src/main.rs:13:12
+#18 37.38    |
+#18 37.38 13 |     path::{Path, PathBuf},
+#18 37.38    |            ^^^^
+#18 37.38    |
+#18 37.38    = note: `#[warn(unused_imports)]` on by default
+#18 37.38 
+#18 37.38 warning: unused imports: `HasTargetBytes`, `SimpleRestartingEventManager`, `TracingStage`, and `token_mutations::I2SRandReplace`
+#18 37.38   --> src/main.rs:20:14
+#18 37.38    |
+#18 37.38 20 |     events::{SimpleRestartingEventManager, SimpleEventManager},
+#18 37.38    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 37.38 ...
+#18 37.38 25 |     inputs::{BytesInput, HasTargetBytes},
+#18 37.38    |                          ^^^^^^^^^^^^^^
+#18 37.38 ...
+#18 37.38 33 |         token_mutations::I2SRandReplace,
+#18 37.38    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 37.38 ...
+#18 37.38 42 |         StdMutationalStage, TracingStage,
+#18 37.38    |                             ^^^^^^^^^^^^
+#18 37.38 
+#18 37.38 warning: unused imports: `AsSlice` and `os::dup2`
+#18 37.38   --> src/main.rs:50:5
+#18 37.38    |
+#18 37.38 50 |     os::dup2,
+#18 37.38    |     ^^^^^^^^
+#18 37.38 ...
+#18 37.38 54 |     AsSlice,
+#18 37.38    |     ^^^^^^^
+#18 37.38 
+#18 37.38 warning: unused import: `std_edges_map_observer`
+#18 37.38   --> src/main.rs:60:5
+#18 37.38    |
+#18 37.38 60 |     std_edges_map_observer, CmpLogObserver,
+#18 37.38    |     ^^^^^^^^^^^^^^^^^^^^^^
+#18 37.38 
+#18 37.41 warning: use of deprecated method `pyo3::Python::<'py>::import`: `Python::import` will be replaced by `Python::import_bound` in a future PyO3 version
+#18 37.41    --> src/main.rs:223:21
+#18 37.41     |
+#18 37.41 223 |         let pm = py.import("execution")?; // Only do this once
+#18 37.41     |                     ^^^^^^
+#18 37.41     |
+#18 37.41     = note: `#[warn(deprecated)]` on by default
+#18 37.41 
+#18 37.44 warning: unused import: `Read`
+#18 37.44   --> src/main.rs:12:16
+#18 37.44    |
+#18 37.44 12 |     io::{self, Read, Write},
+#18 37.44    |                ^^^^
+#18 37.44 
+#18 37.45 warning: unused variable: `c`
+#18 37.45    --> src/main.rs:101:13
+#18 37.45     |
+#18 37.45 101 |         let c = py_list.clone();
+#18 37.45     |             ^ help: if this is intentional, prefix it with an underscore: `_c`
+#18 37.45     |
+#18 37.45     = note: `#[warn(unused_variables)]` on by default
+#18 37.45 
+#18 37.45 warning: unused variable: `cmplog_observer`
+#18 37.45    --> src/main.rs:277:9
+#18 37.45     |
+#18 37.45 277 |     let cmplog_observer = CmpLogObserver::new("cmplog", true);
+#18 37.45     |         ^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_cmplog_observer`
+#18 37.45 
+#18 37.48 warning: variable does not need to be mutable
+#18 37.48    --> src/main.rs:355:9
+#18 37.48     |
+#18 37.48 355 |     let mut remapped = remapped.as_mut_slice();
+#18 37.48     |         ----^^^^^^^^
+#18 37.48     |         |
+#18 37.48     |         help: remove this `mut`
+#18 37.48     |
+#18 37.48     = note: `#[warn(unused_mut)]` on by default
+#18 37.48 
+#18 37.49 warning: function `pytrace` is never used
+#18 37.49   --> src/main.rs:95:4
+#18 37.49    |
+#18 37.49 95 | fn pytrace(input: &BytesInput, module: &Py<PyModule>) {
+#18 37.49    |    ^^^^^^^
+#18 37.49    |
+#18 37.49    = note: `#[warn(dead_code)]` on by default
+#18 37.49 
+#18 86.77 warning: `summerschool` (bin "summerschool") generated 10 warnings (run `cargo fix --bin "summerschool"` to apply 5 suggestions)
+#18 86.77     Finished `release` profile [optimized + debuginfo] target(s) in 1m 26s
+#18 DONE 87.1s
+
+#19 [15/17] RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" --  -t agnoster
+#19 0.242 --2024-05-29 03:36:00--  https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh
+#19 0.250 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+#19 0.251 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+#19 0.262 HTTP request sent, awaiting response... 200 OK
+#19 0.589 Length: 5426 (5.3K) [text/plain]
+#19 0.589 Saving to: ‘STDOUT’
+#19 0.589 
+#19 0.589      0K .....                                                 100%  166M=0s
+#19 0.589 
+#19 0.589 2024-05-29 03:36:00 (166 MB/s) - written to stdout [5426/5426]
+#19 0.589 
+#19 0.596 
+#19 0.596 Installing Oh-My-Zsh with:
+#19 0.596   THEME   = agnoster
+#19 0.596   PLUGINS = 
+#19 0.596 
+#19 0.598 ###### Installing dependencies for debian
+#19 0.652 Hit:1 http://deb.debian.org/debian bookworm InRelease
+#19 0.652 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#19 0.663 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#19 0.784 Get:4 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [157 kB]
+#19 0.821 Fetched 260 kB in 0s (1255 kB/s)
+#19 0.821 Reading package lists...
+#19 1.229 Reading package lists...
+#19 1.632 Building dependency tree...
+#19 1.710 Reading state information...
+#19 1.807 git is already the newest version (1:2.39.2-1.1).
+#19 1.807 curl is already the newest version (7.88.1-10+deb12u5).
+#19 1.807 zsh is already the newest version (5.9-4+b2).
+#19 1.807 The following additional packages will be installed:
+#19 1.808   libc-l10n
+#19 1.822 The following NEW packages will be installed:
+#19 1.823   libc-l10n locales
+#19 1.853 0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+#19 1.853 Need to get 4577 kB of archives.
+#19 1.853 After this operation, 20.7 MB of additional disk space will be used.
+#19 1.853 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 libc-l10n all 2.36-9+deb12u7 [675 kB]
+#19 1.934 Get:2 http://deb.debian.org/debian-security bookworm-security/main amd64 locales all 2.36-9+deb12u7 [3902 kB]
+#19 2.351 debconf: delaying package configuration, since apt-utils is not installed
+#19 2.368 Fetched 4577 kB in 0s (10.6 MB/s)
+#19 2.380 Selecting previously unselected package libc-l10n.
+#19 2.380 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 20861 files and directories currently installed.)
+#19 2.388 Preparing to unpack .../libc-l10n_2.36-9+deb12u7_all.deb ...
+#19 2.389 Unpacking libc-l10n (2.36-9+deb12u7) ...
+#19 2.453 Selecting previously unselected package locales.
+#19 2.455 Preparing to unpack .../locales_2.36-9+deb12u7_all.deb ...
+#19 2.455 Unpacking locales (2.36-9+deb12u7) ...
+#19 2.762 Setting up libc-l10n (2.36-9+deb12u7) ...
+#19 2.764 Setting up locales (2.36-9+deb12u7) ...
+#19 2.819 debconf: unable to initialize frontend: Dialog
+#19 2.819 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#19 2.819 debconf: falling back to frontend: Readline
+#19 2.824 debconf: unable to initialize frontend: Readline
+#19 2.824 debconf: (This frontend requires a controlling tty.)
+#19 2.824 debconf: falling back to frontend: Teletype
+#19 3.135 Generating locales (this might take a while)...
+#19 3.139 Generation complete.
+#19 3.178 Reading package lists...
+#19 3.576 Building dependency tree...
+#19 3.650 Reading state information...
+#19 3.757 The following NEW packages will be installed:
+#19 3.757   locales-all
+#19 3.777 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#19 3.777 Need to get 10.7 MB of archives.
+#19 3.777 After this operation, 233 MB of additional disk space will be used.
+#19 3.777 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 locales-all amd64 2.36-9+deb12u7 [10.7 MB]
+#19 4.783 debconf: delaying package configuration, since apt-utils is not installed
+#19 4.801 Fetched 10.7 MB in 1s (11.6 MB/s)
+#19 4.816 Selecting previously unselected package locales-all.
+#19 4.816 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21519 files and directories currently installed.)
+#19 4.824 Preparing to unpack .../locales-all_2.36-9+deb12u7_amd64.deb ...
+#19 4.825 Unpacking locales-all (2.36-9+deb12u7) ...
+#19 5.898 Setting up locales-all (2.36-9+deb12u7) ...
+#19 5.916 Generating locales (this might take a while)...
+#19 5.920 Generation complete.
+#19 5.927   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#19 5.927                                  Dload  Upload   Total   Spent    Left  Speed
+#19 5.927   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 18381  100 18381    0     0   515k      0 --:--:-- --:--:-- --:--:--  527k
+#19 5.964 Cloning Oh My Zsh...
+#19 7.008 From https://github.com/ohmyzsh/ohmyzsh
+#19 7.008  * [new branch]      master     -> origin/master
+#19 7.076 Already on 'master'
+#19 7.076 branch 'master' set up to track 'origin/master'.
+#19 7.076 /tmp
+#19 7.076 
+#19 7.076 Looking for an existing zsh config...
+#19 7.076 Found /root/.zshrc. Backing up to /root/.zshrc.pre-oh-my-zsh
+#19 7.081 Using the Oh My Zsh template file and adding it to /root/.zshrc.
+#19 7.084 
+#19 7.084          __                                     __   
+#19 7.084   ____  / /_     ____ ___  __  __   ____  _____/ /_  
+#19 7.084  / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ 
+#19 7.084 / /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / 
+#19 7.084 \____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  
+#19 7.084                         /____/                       ....is now installed!
+#19 7.084 
+#19 7.084 
+#19 7.085 Before you scream Oh My Zsh! look over the `.zshrc` file to select plugins, themes, and options.
+#19 7.085 
+#19 7.085 • Follow us on Twitter: https://twitter.com/ohmyzsh
+#19 7.085 • Join our Discord community: https://discord.gg/ohmyzsh
+#19 7.085 • Get stickers, t-shirts, coffee mugs and more: https://shop.planetargon.com/collections/oh-my-zsh
+#19 7.085 
+#19 7.085 Run zsh to try it out.
+#19 DONE 7.3s
+
+#20 [16/17] RUN chsh -s /bin/zsh
+#20 DONE 0.3s
+
+#21 [17/17] RUN chown -R participant:participant /home/participant
+#21 DONE 1.9s
+
+#22 exporting to image
+#22 exporting layers
+#22 exporting layers 6.7s done
+#22 writing image sha256:763f28cda03db57046b2ffc71f34cfa115a796f8773cc4e5c789c8082dff97ef done
+#22 naming to docker.io/library/student-fuzzer:nbars_competition_fuzzer_private_v0_2_2_1716951676 done
+#22 DONE 6.7s
+STDERR vvvvvvvvvvvvvvvvvv

@@ -1,0 +1,395 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 626B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/9] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 6.64kB done
+#5 DONE 0.0s
+
+#6 [3/9] RUN apt install -y git pkg-config libcairo-dev gcc
+#6 CACHED
+
+#7 [4/9] RUN useradd participant
+#7 CACHED
+
+#8 [2/9] RUN apt update -y
+#8 CACHED
+
+#9 [5/9] WORKDIR /home/participant
+#9 CACHED
+
+#10 [6/9] COPY requirements.txt requirements.txt
+#10 DONE 0.0s
+
+#11 [7/9] RUN pip install -r requirements.txt
+#11 1.561 Collecting pyan@ git+https://github.com/uds-se/pyan@7fa04c82a89625e3dac1616d899faec311c1ad1c
+#11 1.561   Cloning https://github.com/uds-se/pyan (to revision 7fa04c82a89625e3dac1616d899faec311c1ad1c) to /tmp/pip-install-7url2qo9/pyan_ba51c8e2e8a24f609e2cfbe13f5dd2ca
+#11 1.562   Running command git clone --filter=blob:none --quiet https://github.com/uds-se/pyan /tmp/pip-install-7url2qo9/pyan_ba51c8e2e8a24f609e2cfbe13f5dd2ca
+#11 3.258   Running command git rev-parse -q --verify 'sha^7fa04c82a89625e3dac1616d899faec311c1ad1c'
+#11 3.259   Running command git fetch -q https://github.com/uds-se/pyan 7fa04c82a89625e3dac1616d899faec311c1ad1c
+#11 3.920   Resolved https://github.com/uds-se/pyan to commit 7fa04c82a89625e3dac1616d899faec311c1ad1c
+#11 3.922   Preparing metadata (setup.py): started
+#11 5.876   Preparing metadata (setup.py): finished with status 'done'
+#11 5.941 Collecting asttokens==2.2.1
+#11 5.981   Downloading asttokens-2.2.1-py2.py3-none-any.whl (26 kB)
+#11 6.044 Collecting async-generator==1.10
+#11 6.049   Downloading async_generator-1.10-py3-none-any.whl (18 kB)
+#11 6.101 Collecting attrs==23.1.0
+#11 6.106   Downloading attrs-23.1.0-py3-none-any.whl (61 kB)
+#11 6.113      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 11.7 MB/s eta 0:00:00
+#11 6.127 Collecting backcall==0.2.0
+#11 6.132   Downloading backcall-0.2.0-py2.py3-none-any.whl (11 kB)
+#11 6.158 Collecting beautifulsoup4==4.12.2
+#11 6.164   Downloading beautifulsoup4-4.12.2-py3-none-any.whl (142 kB)
+#11 6.178      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 143.0/143.0 kB 11.8 MB/s eta 0:00:00
+#11 6.220 Collecting bleach==6.0.0
+#11 6.227   Downloading bleach-6.0.0-py3-none-any.whl (162 kB)
+#11 6.241      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.5/162.5 kB 12.1 MB/s eta 0:00:00
+#11 6.256 Collecting cargo==0.3
+#11 6.261   Downloading cargo-0.3-py3-none-any.whl (7.2 kB)
+#11 6.291 Collecting certifi==2023.5.7
+#11 6.297   Downloading certifi-2023.5.7-py3-none-any.whl (156 kB)
+#11 6.313      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 157.0/157.0 kB 10.9 MB/s eta 0:00:00
+#11 6.461 Collecting contourpy==1.0.7
+#11 6.467   Downloading contourpy-1.0.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (300 kB)
+#11 6.494      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 300.3/300.3 kB 11.6 MB/s eta 0:00:00
+#11 6.512 Collecting cssselect2==0.7.0
+#11 6.516   Downloading cssselect2-0.7.0-py3-none-any.whl (15 kB)
+#11 6.531 Collecting cycler==0.11.0
+#11 6.536   Downloading cycler-0.11.0-py3-none-any.whl (6.4 kB)
+#11 6.560 Collecting decorator==5.1.1
+#11 6.565   Downloading decorator-5.1.1-py3-none-any.whl (9.1 kB)
+#11 6.585 Collecting defusedxml==0.7.1
+#11 6.590   Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+#11 6.606 Collecting diff-match-patch==20230430
+#11 6.612   Downloading diff_match_patch-20230430-py3-none-any.whl (42 kB)
+#11 6.616      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 kB 16.3 MB/s eta 0:00:00
+#11 6.637 Collecting dill==0.3.6
+#11 6.641   Downloading dill-0.3.6-py3-none-any.whl (110 kB)
+#11 6.651      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 110.5/110.5 kB 12.0 MB/s eta 0:00:00
+#11 6.666 Collecting easyplotly==0.1.3
+#11 6.673   Downloading easyplotly-0.1.3.tar.gz (8.0 kB)
+#11 6.679   Preparing metadata (setup.py): started
+#11 6.871   Preparing metadata (setup.py): finished with status 'done'
+#11 6.887 Collecting enforce==0.3.4
+#11 6.893   Downloading enforce-0.3.4-py3-none-any.whl (30 kB)
+#11 6.917 Collecting exceptiongroup==1.1.1
+#11 6.922   Downloading exceptiongroup-1.1.1-py3-none-any.whl (14 kB)
+#11 6.943 Collecting executing==1.2.0
+#11 6.948   Downloading executing-1.2.0-py2.py3-none-any.whl (24 kB)
+#11 6.968 Collecting fastjsonschema==2.16.3
+#11 6.973   Downloading fastjsonschema-2.16.3-py3-none-any.whl (23 kB)
+#11 7.193 Collecting fonttools==4.39.4
+#11 7.198   Downloading fonttools-4.39.4-py3-none-any.whl (1.0 MB)
+#11 7.287      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 11.5 MB/s eta 0:00:00
+#11 7.319 Collecting freetype-py==2.3.0
+#11 7.324   Downloading freetype_py-2.3.0-py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (978 kB)
+#11 7.413      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 978.9/978.9 kB 11.4 MB/s eta 0:00:00
+#11 7.432 Collecting fuzzingbook==1.1
+#11 7.437   Downloading fuzzingbook-1.1.tar.gz (246 kB)
+#11 7.460      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 246.1/246.1 kB 11.5 MB/s eta 0:00:00
+#11 7.483   Preparing metadata (setup.py): started
+#11 7.701   Preparing metadata (setup.py): finished with status 'done'
+#11 7.738 Collecting graphviz==0.20.1
+#11 7.742   Downloading graphviz-0.20.1-py3-none-any.whl (47 kB)
+#11 7.747      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.0/47.0 kB 12.3 MB/s eta 0:00:00
+#11 7.763 Collecting h11==0.14.0
+#11 7.767   Downloading h11-0.14.0-py3-none-any.whl (58 kB)
+#11 7.772      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.3/58.3 kB 15.5 MB/s eta 0:00:00
+#11 7.793 Collecting idna==3.4
+#11 7.797   Downloading idna-3.4-py3-none-any.whl (61 kB)
+#11 7.804      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 10.6 MB/s eta 0:00:00
+#11 7.902 Collecting ipython==8.13.2
+#11 7.907   Downloading ipython-8.13.2-py3-none-any.whl (797 kB)
+#11 7.978      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 797.7/797.7 kB 11.6 MB/s eta 0:00:00
+#11 8.008 Collecting jedi==0.18.2
+#11 8.014   Downloading jedi-0.18.2-py2.py3-none-any.whl (1.6 MB)
+#11 8.150      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 11.6 MB/s eta 0:00:00
+#11 8.193 Collecting Jinja2==3.1.2
+#11 8.198   Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+#11 8.211      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 kB 11.5 MB/s eta 0:00:00
+#11 8.246 Collecting joblib==1.2.0
+#11 8.254   Downloading joblib-1.2.0-py3-none-any.whl (297 kB)
+#11 8.280      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 298.0/298.0 kB 11.7 MB/s eta 0:00:00
+#11 8.330 Collecting jsonschema==4.17.3
+#11 8.333   Downloading jsonschema-4.17.3-py3-none-any.whl (90 kB)
+#11 8.343      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.4/90.4 kB 11.2 MB/s eta 0:00:00
+#11 8.396 Collecting jupyter_client==8.2.0
+#11 8.400   Downloading jupyter_client-8.2.0-py3-none-any.whl (103 kB)
+#11 8.411      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.2/103.2 kB 11.1 MB/s eta 0:00:00
+#11 8.448 Collecting jupyter_core==5.3.0
+#11 8.452   Downloading jupyter_core-5.3.0-py3-none-any.whl (93 kB)
+#11 8.461      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 93.2/93.2 kB 12.8 MB/s eta 0:00:00
+#11 8.479 Collecting jupyterlab-pygments==0.2.2
+#11 8.483   Downloading jupyterlab_pygments-0.2.2-py2.py3-none-any.whl (21 kB)
+#11 8.593 Collecting kiwisolver==1.4.4
+#11 8.601   Downloading kiwisolver-1.4.4-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+#11 8.742      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 11.5 MB/s eta 0:00:00
+#11 9.184 Collecting lxml==4.9.2
+#11 9.191   Downloading lxml-4.9.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (7.1 MB)
+#11 9.808      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 11.5 MB/s eta 0:00:00
+#11 9.857 Collecting Markdown==3.4.3
+#11 9.861   Downloading Markdown-3.4.3-py3-none-any.whl (93 kB)
+#11 9.870      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 93.9/93.9 kB 12.3 MB/s eta 0:00:00
+#11 9.981 Collecting MarkupSafe==2.1.2
+#11 9.986   Downloading MarkupSafe-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+#11 10.32 Collecting matplotlib==3.7.1
+#11 10.32   Downloading matplotlib-3.7.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)
+#11 11.33      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.6/11.6 MB 11.5 MB/s eta 0:00:00
+#11 11.38 Collecting matplotlib-inline==0.1.6
+#11 11.38   Downloading matplotlib_inline-0.1.6-py3-none-any.whl (9.4 kB)
+#11 11.42 Collecting mistune==2.0.5
+#11 11.42   Downloading mistune-2.0.5-py2.py3-none-any.whl (24 kB)
+#11 11.46 Collecting multiprocess==0.70.14
+#11 11.47   Downloading multiprocess-0.70.14-py310-none-any.whl (134 kB)
+#11 11.48      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.3/134.3 kB 11.8 MB/s eta 0:00:00
+#11 11.54 Collecting nbclient==0.7.4
+#11 11.54   Downloading nbclient-0.7.4-py3-none-any.whl (73 kB)
+#11 11.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 12.8 MB/s eta 0:00:00
+#11 11.61 Collecting nbconvert==7.4.0
+#11 11.61   Downloading nbconvert-7.4.0-py3-none-any.whl (285 kB)
+#11 11.64      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 285.9/285.9 kB 11.6 MB/s eta 0:00:00
+#11 11.67 Collecting nbformat==5.8.0
+#11 11.67   Downloading nbformat-5.8.0-py3-none-any.whl (77 kB)
+#11 11.68      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.4/77.4 kB 11.4 MB/s eta 0:00:00
+#11 11.72 Collecting networkx==3.1
+#11 11.73   Downloading networkx-3.1-py3-none-any.whl (2.1 MB)
+#11 11.91      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 11.7 MB/s eta 0:00:00
+#11 11.94 Collecting notedown==1.5.1
+#11 11.94   Downloading notedown-1.5.1-py3-none-any.whl (19 kB)
+#11 12.38 Collecting numpy==1.26.1
+#11 12.39   Downloading numpy-1.26.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+#11 13.96      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 11.2 MB/s eta 0:00:00
+#11 14.04 Collecting outcome==1.2.0
+#11 14.04   Downloading outcome-1.2.0-py2.py3-none-any.whl (9.7 kB)
+#11 14.08 Collecting packaging==23.1
+#11 14.08   Downloading packaging-23.1-py3-none-any.whl (48 kB)
+#11 14.09      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.9/48.9 kB 13.0 MB/s eta 0:00:00
+#11 14.39 Collecting pandas==2.0.1
+#11 14.39   Downloading pandas-2.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+#11 15.46      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 11.5 MB/s eta 0:00:00
+#11 15.74 Collecting pandoc-attributes==0.1.7
+#11 15.74   Downloading pandoc-attributes-0.1.7.tar.gz (2.6 kB)
+#11 15.75   Preparing metadata (setup.py): started
+#11 15.94   Preparing metadata (setup.py): finished with status 'done'
+#11 15.95 Collecting pandocfilters==1.5.0
+#11 15.96   Downloading pandocfilters-1.5.0-py2.py3-none-any.whl (8.7 kB)
+#11 15.98 Collecting parso==0.8.3
+#11 15.99   Downloading parso-0.8.3-py2.py3-none-any.whl (100 kB)
+#11 16.00      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.8/100.8 kB 10.8 MB/s eta 0:00:00
+#11 16.01 Collecting pexpect==4.8.0
+#11 16.02   Downloading pexpect-4.8.0-py2.py3-none-any.whl (59 kB)
+#11 16.03      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.0/59.0 kB 9.2 MB/s eta 0:00:00
+#11 16.05 Collecting pickleshare==0.7.5
+#11 16.05   Downloading pickleshare-0.7.5-py2.py3-none-any.whl (6.9 kB)
+#11 16.47 Collecting Pillow==9.5.0
+#11 16.48   Downloading Pillow-9.5.0-cp310-cp310-manylinux_2_28_x86_64.whl (3.4 MB)
+#11 16.77      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 11.7 MB/s eta 0:00:00
+#11 16.81 Collecting platformdirs==3.5.1
+#11 16.82   Downloading platformdirs-3.5.1-py3-none-any.whl (15 kB)
+#11 16.89 Collecting plotly==5.14.1
+#11 16.89   Downloading plotly-5.14.1-py2.py3-none-any.whl (15.3 MB)
+#11 18.22      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.3/15.3 MB 11.4 MB/s eta 0:00:00
+#11 18.40 Collecting prompt-toolkit==3.0.38
+#11 18.40   Downloading prompt_toolkit-3.0.38-py3-none-any.whl (385 kB)
+#11 18.44      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 385.8/385.8 kB 11.4 MB/s eta 0:00:00
+#11 18.45 Collecting ptyprocess==0.7.0
+#11 18.46   Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+#11 18.47 Collecting pure-eval==0.2.2
+#11 18.48   Downloading pure_eval-0.2.2-py3-none-any.whl (11 kB)
+#11 18.51 Collecting pycairo==1.23.0
+#11 18.52   Downloading pycairo-1.23.0.tar.gz (344 kB)
+#11 18.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 344.6/344.6 kB 11.8 MB/s eta 0:00:00
+#11 18.58   Installing build dependencies: started
+#11 19.94   Installing build dependencies: finished with status 'done'
+#11 19.94   Getting requirements to build wheel: started
+#11 20.11   Getting requirements to build wheel: finished with status 'done'
+#11 20.12   Installing backend dependencies: started
+#11 20.66   Installing backend dependencies: finished with status 'done'
+#11 20.66   Preparing metadata (pyproject.toml): started
+#11 20.85   Preparing metadata (pyproject.toml): finished with status 'done'
+#11 20.87 Collecting pydot==1.4.2
+#11 20.87   Downloading pydot-1.4.2-py2.py3-none-any.whl (21 kB)
+#11 20.91 Collecting Pygments==2.15.1
+#11 20.91   Downloading Pygments-2.15.1-py3-none-any.whl (1.1 MB)
+#11 21.02      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 11.5 MB/s eta 0:00:00
+#11 21.06 Collecting pyparsing==2.4.7
+#11 21.07   Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+#11 21.07      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.8/67.8 kB 11.2 MB/s eta 0:00:00
+#11 21.12 Collecting pyrsistent==0.19.3
+#11 21.12   Downloading pyrsistent-0.19.3-py3-none-any.whl (57 kB)
+#11 21.13      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.5/57.5 kB 12.7 MB/s eta 0:00:00
+#11 21.15 Collecting PySocks==1.7.1
+#11 21.15   Downloading PySocks-1.7.1-py3-none-any.whl (16 kB)
+#11 21.17 Collecting python-dateutil==2.8.2
+#11 21.18   Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+#11 21.20      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.7/247.7 kB 11.9 MB/s eta 0:00:00
+#11 21.23 Collecting python-magic==0.4.27
+#11 21.23   Downloading python_magic-0.4.27-py2.py3-none-any.whl (13 kB)
+#11 21.30 Collecting pytz==2023.3
+#11 21.30   Downloading pytz-2023.3-py2.py3-none-any.whl (502 kB)
+#11 21.35      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 502.3/502.3 kB 11.3 MB/s eta 0:00:00
+#11 21.93 Collecting pyzmq==25.1.1
+#11 21.94   Downloading pyzmq-25.1.1-cp310-cp310-manylinux_2_28_x86_64.whl (1.1 MB)
+#11 22.04      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 11.6 MB/s eta 0:00:00
+#11 22.38 Collecting reportlab==4.0.0
+#11 22.38   Downloading reportlab-4.0.0-py3-none-any.whl (1.9 MB)
+#11 22.58      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 11.7 MB/s eta 0:00:00
+#11 22.60 Collecting rlPyCairo==0.2.0
+#11 22.61   Downloading rlPyCairo-0.2.0-py3-none-any.whl (10 kB)
+#11 22.79 Collecting scikit-learn==1.2.2
+#11 22.80   Downloading scikit_learn-1.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (9.6 MB)
+#11 23.63      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.6/9.6 MB 11.7 MB/s eta 0:00:00
+#11 23.89 Collecting scipy==1.11.3
+#11 23.90   Downloading scipy-1.11.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (36.4 MB)
+#11 27.24      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 36.4/36.4 MB 10.6 MB/s eta 0:00:00
+#11 27.39 Collecting selenium==4.9.1
+#11 27.40   Downloading selenium-4.9.1-py3-none-any.whl (6.6 MB)
+#11 27.96      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 11.6 MB/s eta 0:00:00
+#11 28.00 Collecting showast==0.2.4
+#11 28.01   Downloading showast-0.2.4.zip (8.4 kB)
+#11 28.01   Preparing metadata (setup.py): started
+#11 28.21   Preparing metadata (setup.py): finished with status 'done'
+#11 28.23 Collecting six==1.16.0
+#11 28.23   Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+#11 28.25 Collecting sniffio==1.3.0
+#11 28.25   Downloading sniffio-1.3.0-py3-none-any.whl (10 kB)
+#11 28.27 Collecting sortedcontainers==2.4.0
+#11 28.28   Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+#11 28.31 Collecting soupsieve==2.4.1
+#11 28.31   Downloading soupsieve-2.4.1-py3-none-any.whl (36 kB)
+#11 28.33 Collecting stack-data==0.6.2
+#11 28.34   Downloading stack_data-0.6.2-py3-none-any.whl (24 kB)
+#11 28.36 Collecting svglib==1.5.1
+#11 28.37   Downloading svglib-1.5.1.tar.gz (913 kB)
+#11 28.45      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 913.9/913.9 kB 12.0 MB/s eta 0:00:00
+#11 28.49   Preparing metadata (setup.py): started
+#11 28.72   Preparing metadata (setup.py): finished with status 'done'
+#11 28.75 Collecting tenacity==8.2.2
+#11 28.75   Downloading tenacity-8.2.2-py3-none-any.whl (24 kB)
+#11 28.77 Collecting threadpoolctl==3.1.0
+#11 28.77   Downloading threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
+#11 28.79 Collecting tinycss2==1.2.1
+#11 28.80   Downloading tinycss2-1.2.1-py3-none-any.whl (21 kB)
+#11 28.82 Collecting tomli==2.0.1
+#11 28.82   Using cached tomli-2.0.1-py3-none-any.whl (12 kB)
+#11 28.90 Collecting tornado==6.3.1
+#11 28.90   Downloading tornado-6.3.1-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (426 kB)
+#11 28.94      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 426.8/426.8 kB 11.6 MB/s eta 0:00:00
+#11 28.98 Collecting traitlets==5.9.0
+#11 28.98   Downloading traitlets-5.9.0-py3-none-any.whl (117 kB)
+#11 28.99      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.4/117.4 kB 11.3 MB/s eta 0:00:00
+#11 29.02 Collecting trio==0.22.0
+#11 29.02   Downloading trio-0.22.0-py3-none-any.whl (384 kB)
+#11 29.06      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 384.9/384.9 kB 11.7 MB/s eta 0:00:00
+#11 29.08 Collecting trio-websocket==0.10.2
+#11 29.08   Downloading trio_websocket-0.10.2-py3-none-any.whl (17 kB)
+#11 29.12 Collecting types-Markdown==3.4.2.9
+#11 29.12   Downloading types_Markdown-3.4.2.9-py3-none-any.whl (16 kB)
+#11 29.21 Collecting tzdata==2023.3
+#11 29.22   Downloading tzdata-2023.3-py2.py3-none-any.whl (341 kB)
+#11 29.25      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 341.8/341.8 kB 11.6 MB/s eta 0:00:00
+#11 29.31 Collecting urllib3==2.0.2
+#11 29.32   Downloading urllib3-2.0.2-py3-none-any.whl (123 kB)
+#11 29.33      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.2/123.2 kB 12.0 MB/s eta 0:00:00
+#11 29.35 Collecting wcwidth==0.2.6
+#11 29.35   Downloading wcwidth-0.2.6-py2.py3-none-any.whl (29 kB)
+#11 29.37 Collecting webencodings==0.5.1
+#11 29.37   Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+#11 29.56 Collecting wrapt==1.15.0
+#11 29.57   Downloading wrapt-1.15.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (78 kB)
+#11 29.57      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.4/78.4 kB 12.1 MB/s eta 0:00:00
+#11 29.59 Collecting wsproto==1.2.0
+#11 29.59   Downloading wsproto-1.2.0-py3-none-any.whl (24 kB)
+#11 29.63 Collecting yapf==0.33.0
+#11 29.63   Downloading yapf-0.33.0-py2.py3-none-any.whl (200 kB)
+#11 29.66      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 kB 11.6 MB/s eta 0:00:00
+#11 29.70 Collecting z3-solver==4.12.2.0
+#11 29.70   Downloading z3_solver-4.12.2.0-py2.py3-none-manylinux2014_x86_64.whl (55.7 MB)
+#11 34.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.7/55.7 MB 9.9 MB/s eta 0:00:00
+#11 34.72 Collecting atheris==2.3.0
+#11 34.72   Downloading atheris-2.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (30.9 MB)
+#11 37.63      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 30.9/30.9 MB 9.8 MB/s eta 0:00:00
+#11 39.00 Collecting urllib3[socks]<3,>=1.26
+#11 39.01   Downloading urllib3-2.2.1-py3-none-any.whl (121 kB)
+#11 39.02      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.1/121.1 kB 11.7 MB/s eta 0:00:00
+#11 39.39   Downloading urllib3-2.2.0-py3-none-any.whl (120 kB)
+#11 39.40      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.9/120.9 kB 11.1 MB/s eta 0:00:00
+#11 39.41   Downloading urllib3-2.1.0-py3-none-any.whl (104 kB)
+#11 39.43      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.6/104.6 kB 10.7 MB/s eta 0:00:00
+#11 39.44   Downloading urllib3-2.0.7-py3-none-any.whl (124 kB)
+#11 39.45      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.2/124.2 kB 10.6 MB/s eta 0:00:00
+#11 39.47   Downloading urllib3-2.0.6-py3-none-any.whl (123 kB)
+#11 39.48      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.8/123.8 kB 12.0 MB/s eta 0:00:00
+#11 39.50   Downloading urllib3-2.0.5-py3-none-any.whl (123 kB)
+#11 39.51      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.8/123.8 kB 11.2 MB/s eta 0:00:00
+#11 39.53   Downloading urllib3-2.0.4-py3-none-any.whl (123 kB)
+#11 39.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.9/123.9 kB 11.8 MB/s eta 0:00:00
+#11 39.57   Downloading urllib3-2.0.3-py3-none-any.whl (123 kB)
+#11 39.58      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.6/123.6 kB 10.7 MB/s eta 0:00:00
+#11 39.60 WARNING: The candidate selected for download or install is a yanked version: 'yapf' candidate (version 0.33.0 at https://files.pythonhosted.org/packages/32/ec/531851d561ecb656bd58dc102338d0aa07e086788f351c63a9f6b8a00fe6/yapf-0.33.0-py2.py3-none-any.whl (from https://pypi.org/simple/yapf/))
+#11 39.60 Reason for being yanked: <none given>
+#11 39.60 Building wheels for collected packages: easyplotly, fuzzingbook, pandoc-attributes, pycairo, showast, svglib, pyan
+#11 39.60   Building wheel for easyplotly (setup.py): started
+#11 39.93   Building wheel for easyplotly (setup.py): finished with status 'done'
+#11 39.93   Created wheel for easyplotly: filename=easyplotly-0.1.3-py3-none-any.whl size=8690 sha256=64f4bab7560cc0ed368a2df67c7084217fd7446106412398740fe383a54b094e
+#11 39.93   Stored in directory: /root/.cache/pip/wheels/74/05/c6/85ae93afb3a07d0925abec6978b23e2e295a3bb4aa4c523de5
+#11 39.94   Building wheel for fuzzingbook (setup.py): started
+#11 40.28   Building wheel for fuzzingbook (setup.py): finished with status 'done'
+#11 40.28   Created wheel for fuzzingbook: filename=fuzzingbook-1.1-py3-none-any.whl size=289102 sha256=c09908a4e8fdb4530abceb99129a6c4164c4104a276ea78282449ee28ca93c23
+#11 40.28   Stored in directory: /root/.cache/pip/wheels/53/bc/c4/448ca4a6fe14d30a8a4fbe9764c56c5f761bbbf1e9b7d66c8e
+#11 40.29   Building wheel for pandoc-attributes (setup.py): started
+#11 40.55   Building wheel for pandoc-attributes (setup.py): finished with status 'done'
+#11 40.55   Created wheel for pandoc-attributes: filename=pandoc_attributes-0.1.7-py3-none-any.whl size=3008 sha256=744e2ec9fd03c47690de4f4bd0ad0d9226077af57195a7ce8fb57eff738f5471
+#11 40.55   Stored in directory: /root/.cache/pip/wheels/ae/5c/5d/6346b51a40a6d9b39033c221fa2f84ef110a067be865b22322
+#11 40.55   Building wheel for pycairo (pyproject.toml): started
+#11 44.18   Building wheel for pycairo (pyproject.toml): finished with status 'done'
+#11 44.18   Created wheel for pycairo: filename=pycairo-1.23.0-cp310-cp310-linux_x86_64.whl size=324646 sha256=82b5b7498170e60c2bac92f8db43df8c5cec5d4ef775103b9407f656c0d383b6
+#11 44.18   Stored in directory: /root/.cache/pip/wheels/6d/63/63/4341460df2dca6490f16a23996298f277a3441f0b08bebe69b
+#11 44.18   Building wheel for showast (setup.py): started
+#11 44.46   Building wheel for showast (setup.py): finished with status 'done'
+#11 44.46   Created wheel for showast: filename=showast-0.2.4-py3-none-any.whl size=6028 sha256=beb1aa1f1dd5b7b07c2fdd91ff54a94f64256d9182a8401f1da3fa7de4534cd8
+#11 44.46   Stored in directory: /root/.cache/pip/wheels/cd/f7/25/de67eb43424abe39b073547fa8f1c204da6eb578cfa909a318
+#11 44.46   Building wheel for svglib (setup.py): started
+#11 44.75   Building wheel for svglib (setup.py): finished with status 'done'
+#11 44.75   Created wheel for svglib: filename=svglib-1.5.1-py3-none-any.whl size=30901 sha256=7399a091030d11e3e8be5f64dc15305b445ca13d542a3bee23a7737332e8809c
+#11 44.75   Stored in directory: /root/.cache/pip/wheels/56/9f/90/f37f4b9dbf82987a24ae14f15586e96715cb669a4710b3b85d
+#11 44.76   Building wheel for pyan (setup.py): started
+#11 45.14   Building wheel for pyan (setup.py): finished with status 'done'
+#11 45.14   Created wheel for pyan: filename=pyan-1.0.4.dev1+g7fa04c8-py3-none-any.whl size=39719 sha256=2b903022a967c988c09031328f5c0bd2405cf71a32773c072103a4488959aec1
+#11 45.14   Stored in directory: /root/.cache/pip/wheels/22/16/14/3f9d8ff680b96b774e8b7499353e587f963ac8460cd1f25245
+#11 45.14 Successfully built easyplotly fuzzingbook pandoc-attributes pycairo showast svglib pyan
+#11 45.99 Installing collected packages: z3-solver, webencodings, wcwidth, types-Markdown, sortedcontainers, pytz, pyan, pure-eval, ptyprocess, pickleshare, mistune, fastjsonschema, executing, backcall, atheris, wrapt, urllib3, tzdata, traitlets, tornado, tomli, tinycss2, threadpoolctl, tenacity, soupsieve, sniffio, six, pyzmq, python-magic, PySocks, pyrsistent, pyparsing, Pygments, pycairo, prompt-toolkit, platformdirs, Pillow, pexpect, parso, pandocfilters, packaging, numpy, networkx, MarkupSafe, Markdown, lxml, kiwisolver, jupyterlab-pygments, joblib, idna, h11, graphviz, freetype-py, fonttools, exceptiongroup, dill, diff-match-patch, defusedxml, decorator, cycler, certifi, cargo, attrs, async-generator, yapf, wsproto, scipy, rlPyCairo, python-dateutil, pydot, plotly, pandoc-attributes, outcome, multiprocess, matplotlib-inline, jupyter_core, jsonschema, Jinja2, jedi, enforce, cssselect2, contourpy, bleach, beautifulsoup4, asttokens, trio, stack-data, scikit-learn, reportlab, pandas, nbformat, matplotlib, jupyter_client, trio-websocket, svglib, nbclient, ipython, easyplotly, showast, selenium, nbconvert, notedown, fuzzingbook
+#11 70.93 Successfully installed Jinja2-3.1.2 Markdown-3.4.3 MarkupSafe-2.1.2 Pillow-9.5.0 PySocks-1.7.1 Pygments-2.15.1 asttokens-2.2.1 async-generator-1.10 atheris-2.3.0 attrs-23.1.0 backcall-0.2.0 beautifulsoup4-4.12.2 bleach-6.0.0 cargo-0.3 certifi-2023.5.7 contourpy-1.0.7 cssselect2-0.7.0 cycler-0.11.0 decorator-5.1.1 defusedxml-0.7.1 diff-match-patch-20230430 dill-0.3.6 easyplotly-0.1.3 enforce-0.3.4 exceptiongroup-1.1.1 executing-1.2.0 fastjsonschema-2.16.3 fonttools-4.39.4 freetype-py-2.3.0 fuzzingbook-1.1 graphviz-0.20.1 h11-0.14.0 idna-3.4 ipython-8.13.2 jedi-0.18.2 joblib-1.2.0 jsonschema-4.17.3 jupyter_client-8.2.0 jupyter_core-5.3.0 jupyterlab-pygments-0.2.2 kiwisolver-1.4.4 lxml-4.9.2 matplotlib-3.7.1 matplotlib-inline-0.1.6 mistune-2.0.5 multiprocess-0.70.14 nbclient-0.7.4 nbconvert-7.4.0 nbformat-5.8.0 networkx-3.1 notedown-1.5.1 numpy-1.26.1 outcome-1.2.0 packaging-23.1 pandas-2.0.1 pandoc-attributes-0.1.7 pandocfilters-1.5.0 parso-0.8.3 pexpect-4.8.0 pickleshare-0.7.5 platformdirs-3.5.1 plotly-5.14.1 prompt-toolkit-3.0.38 ptyprocess-0.7.0 pure-eval-0.2.2 pyan-1.0.4.dev1+g7fa04c8 pycairo-1.23.0 pydot-1.4.2 pyparsing-2.4.7 pyrsistent-0.19.3 python-dateutil-2.8.2 python-magic-0.4.27 pytz-2023.3 pyzmq-25.1.1 reportlab-4.0.0 rlPyCairo-0.2.0 scikit-learn-1.2.2 scipy-1.11.3 selenium-4.9.1 showast-0.2.4 six-1.16.0 sniffio-1.3.0 sortedcontainers-2.4.0 soupsieve-2.4.1 stack-data-0.6.2 svglib-1.5.1 tenacity-8.2.2 threadpoolctl-3.1.0 tinycss2-1.2.1 tomli-2.0.1 tornado-6.3.1 traitlets-5.9.0 trio-0.22.0 trio-websocket-0.10.2 types-Markdown-3.4.2.9 tzdata-2023.3 urllib3-2.0.2 wcwidth-0.2.6 webencodings-0.5.1 wrapt-1.15.0 wsproto-1.2.0 yapf-0.33.0 z3-solver-4.12.2.0
+#11 70.93 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#11 70.94 
+#11 70.94 [notice] A new release of pip is available: 23.0.1 -> 24.0
+#11 70.94 [notice] To update, run: pip install --upgrade pip
+#11 DONE 72.2s
+
+#12 [8/9] COPY *.py ./
+#12 DONE 0.0s
+
+#13 [9/9] COPY examples ./examples
+#13 DONE 0.0s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 5.9s done
+#14 writing image sha256:a4df53b6e31c35b2ba1a136696ad5e80560d0e197c6c45a6d2f2bbee71880d7d done
+#14 naming to docker.io/library/student-fuzzer:chocomango_competition_fuzzer_v1_1716963421 done
+#14 DONE 5.9s
+STDERR vvvvvvvvvvvvvvvvvv

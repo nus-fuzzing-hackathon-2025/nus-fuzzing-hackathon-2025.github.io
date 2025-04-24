@@ -1,0 +1,51 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 626B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/9] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 2.74kB done
+#5 DONE 0.0s
+
+#6 [4/9] RUN useradd participant
+#6 CACHED
+
+#7 [5/9] WORKDIR /home/participant
+#7 CACHED
+
+#8 [6/9] COPY requirements.txt requirements.txt
+#8 CACHED
+
+#9 [7/9] RUN pip install -r requirements.txt
+#9 CACHED
+
+#10 [2/9] RUN apt update -y
+#10 CACHED
+
+#11 [8/9] COPY *.py ./
+#11 CACHED
+
+#12 [3/9] RUN apt install -y git pkg-config libcairo-dev gcc
+#12 CACHED
+
+#13 [9/9] COPY examples ./examples
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 writing image sha256:abd291551cdd85545ccc7e63d4ee65dcc0e32821de71529dc5d508ff2e8456de done
+#14 naming to docker.io/library/student-fuzzer:final_run_ym_han_competition_fuzzer_v_1_1_1_1716990901 0.0s done
+#14 DONE 0.0s
+STDERR vvvvvvvvvvvvvvvvvv

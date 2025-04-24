@@ -1,0 +1,21 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+STDERR vvvvvvvvvvvvvvvvvv
+competition-fuzzer-backdoor_v0.1/
+competition-fuzzer-backdoor_v0.1/.github/
+competition-fuzzer-backdoor_v0.1/.github/workflows/
+competition-fuzzer-backdoor_v0.1/.github/workflows/docker-image.yml
+competition-fuzzer-backdoor_v0.1/.gitignore
+competition-fuzzer-backdoor_v0.1/Dockerfile
+competition-fuzzer-backdoor_v0.1/LICENSE
+competition-fuzzer-backdoor_v0.1/README.md
+competition-fuzzer-backdoor_v0.1/examples/
+competition-fuzzer-backdoor_v0.1/examples/1/
+competition-fuzzer-backdoor_v0.1/examples/1/bug.py
+competition-fuzzer-backdoor_v0.1/examples/32/
+competition-fuzzer-backdoor_v0.1/examples/32/bug.py
+competition-fuzzer-backdoor_v0.1/examples/35/
+competition-fuzzer-backdoor_v0.1/examples/35/bug.py
+competition-fuzzer-backdoor_v0.1/examples/5/
+competition-fuzzer-backdoor_v0.1/examples/5/bug.py
+competition-fuzzer-backdoor_v0.1/fuzzer.py
+competition-fuzzer-backdoor_v0.1/requirements.txt

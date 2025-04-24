@@ -1,0 +1,963 @@
+STDOUT vvvvvvvvvvvvvvvvvv
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.13kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/17] FROM docker.io/library/python:3.10-slim-bookworm
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 7.02MB 0.1s done
+#5 DONE 0.1s
+
+#6 [ 2/17] RUN apt update -y
+#6 CACHED
+
+#7 [ 3/17] RUN apt install -y git pkg-config libcairo-dev gcc
+#7 CACHED
+
+#8 [ 4/17] RUN useradd participant
+#8 CACHED
+
+#9 [ 5/17] WORKDIR /home/participant
+#9 CACHED
+
+#10 [ 6/17] COPY requirements.txt requirements.txt
+#10 CACHED
+
+#11 [ 7/17] RUN pip install -r requirements.txt
+#11 CACHED
+
+#12 [ 8/17] COPY fuzzer fuzzer
+#12 DONE 0.1s
+
+#13 [ 9/17] COPY *.py ./
+#13 DONE 0.0s
+
+#14 [10/17] COPY examples ./examples
+#14 DONE 0.0s
+
+#15 [11/17] COPY zshrc /root/.zshrc
+#15 DONE 0.0s
+
+#16 [12/17] RUN apt install -y curl zsh powerline fonts-powerline libpython3-dev wget
+#16 0.213 
+#16 0.213 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#16 0.213 
+#16 0.215 Reading package lists...
+#16 0.649 Building dependency tree...
+#16 0.733 Reading state information...
+#16 0.836 The following additional packages will be installed:
+#16 0.836   fontconfig libcurl4 libpcre3 libpython3.11 libpython3.11-dev
+#16 0.836   python3-powerline python3-psutil zsh-common
+#16 0.837 Suggested packages:
+#16 0.837   powerline-doc python3-i3ipc vim-addon-manager python-psutil-doc zsh-doc
+#16 0.991 The following NEW packages will be installed:
+#16 0.991   curl fontconfig fonts-powerline libcurl4 libpcre3 libpython3-dev
+#16 0.992   libpython3.11 libpython3.11-dev powerline python3-powerline python3-psutil
+#16 0.992   wget zsh zsh-common
+#16 1.032 0 upgraded, 14 newly installed, 0 to remove and 0 not upgraded.
+#16 1.032 Need to get 14.6 MB of archives.
+#16 1.032 After this operation, 61.9 MB of additional disk space will be used.
+#16 1.032 Get:1 http://deb.debian.org/debian bookworm/main amd64 wget amd64 1.21.3-1+b2 [984 kB]
+#16 1.166 Get:2 http://deb.debian.org/debian bookworm/main amd64 libcurl4 amd64 7.88.1-10+deb12u5 [390 kB]
+#16 1.198 Get:3 http://deb.debian.org/debian bookworm/main amd64 curl amd64 7.88.1-10+deb12u5 [315 kB]
+#16 1.234 Get:4 http://deb.debian.org/debian bookworm/main amd64 fontconfig amd64 2.14.1-4 [449 kB]
+#16 1.275 Get:5 http://deb.debian.org/debian bookworm/main amd64 fonts-powerline all 2.8.3-4 [5568 B]
+#16 1.275 Get:6 http://deb.debian.org/debian bookworm/main amd64 libpcre3 amd64 2:8.39-15 [341 kB]
+#16 1.304 Get:7 http://deb.debian.org/debian bookworm/main amd64 libpython3.11 amd64 3.11.2-6 [1988 kB]
+#16 1.470 Get:8 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-dev amd64 3.11.2-6 [4738 kB]
+#16 1.867 Get:9 http://deb.debian.org/debian bookworm/main amd64 libpython3-dev amd64 3.11.2-1+b1 [9572 B]
+#16 1.867 Get:10 http://deb.debian.org/debian bookworm/main amd64 python3-psutil amd64 5.9.4-1+b1 [189 kB]
+#16 1.883 Get:11 http://deb.debian.org/debian bookworm/main amd64 python3-powerline all 2.8.3-4 [130 kB]
+#16 1.894 Get:12 http://deb.debian.org/debian bookworm/main amd64 powerline amd64 2.8.3-4 [52.2 kB]
+#16 1.899 Get:13 http://deb.debian.org/debian bookworm/main amd64 zsh-common all 5.9-4 [4147 kB]
+#16 2.246 Get:14 http://deb.debian.org/debian bookworm/main amd64 zsh amd64 5.9-4+b2 [908 kB]
+#16 2.421 debconf: delaying package configuration, since apt-utils is not installed
+#16 2.438 Fetched 14.6 MB in 1s (11.1 MB/s)
+#16 2.450 Selecting previously unselected package wget.
+#16 2.450 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 18617 files and directories currently installed.)
+#16 2.457 Preparing to unpack .../00-wget_1.21.3-1+b2_amd64.deb ...
+#16 2.458 Unpacking wget (1.21.3-1+b2) ...
+#16 2.520 Selecting previously unselected package libcurl4:amd64.
+#16 2.521 Preparing to unpack .../01-libcurl4_7.88.1-10+deb12u5_amd64.deb ...
+#16 2.522 Unpacking libcurl4:amd64 (7.88.1-10+deb12u5) ...
+#16 2.553 Selecting previously unselected package curl.
+#16 2.554 Preparing to unpack .../02-curl_7.88.1-10+deb12u5_amd64.deb ...
+#16 2.554 Unpacking curl (7.88.1-10+deb12u5) ...
+#16 2.587 Selecting previously unselected package fontconfig.
+#16 2.588 Preparing to unpack .../03-fontconfig_2.14.1-4_amd64.deb ...
+#16 2.588 Unpacking fontconfig (2.14.1-4) ...
+#16 2.609 Selecting previously unselected package fonts-powerline.
+#16 2.610 Preparing to unpack .../04-fonts-powerline_2.8.3-4_all.deb ...
+#16 2.610 Unpacking fonts-powerline (2.8.3-4) ...
+#16 2.621 Selecting previously unselected package libpcre3:amd64.
+#16 2.622 Preparing to unpack .../05-libpcre3_2%3a8.39-15_amd64.deb ...
+#16 2.622 Unpacking libpcre3:amd64 (2:8.39-15) ...
+#16 2.655 Selecting previously unselected package libpython3.11:amd64.
+#16 2.656 Preparing to unpack .../06-libpython3.11_3.11.2-6_amd64.deb ...
+#16 2.656 Unpacking libpython3.11:amd64 (3.11.2-6) ...
+#16 2.809 Selecting previously unselected package libpython3.11-dev:amd64.
+#16 2.810 Preparing to unpack .../07-libpython3.11-dev_3.11.2-6_amd64.deb ...
+#16 2.810 Unpacking libpython3.11-dev:amd64 (3.11.2-6) ...
+#16 3.157 Selecting previously unselected package libpython3-dev:amd64.
+#16 3.158 Preparing to unpack .../08-libpython3-dev_3.11.2-1+b1_amd64.deb ...
+#16 3.158 Unpacking libpython3-dev:amd64 (3.11.2-1+b1) ...
+#16 3.169 Selecting previously unselected package python3-psutil.
+#16 3.170 Preparing to unpack .../09-python3-psutil_5.9.4-1+b1_amd64.deb ...
+#16 3.170 Unpacking python3-psutil (5.9.4-1+b1) ...
+#16 3.193 Selecting previously unselected package python3-powerline.
+#16 3.194 Preparing to unpack .../10-python3-powerline_2.8.3-4_all.deb ...
+#16 3.195 Unpacking python3-powerline (2.8.3-4) ...
+#16 3.217 Selecting previously unselected package powerline.
+#16 3.219 Preparing to unpack .../11-powerline_2.8.3-4_amd64.deb ...
+#16 3.219 Unpacking powerline (2.8.3-4) ...
+#16 3.243 Selecting previously unselected package zsh-common.
+#16 3.244 Preparing to unpack .../12-zsh-common_5.9-4_all.deb ...
+#16 3.248 Unpacking zsh-common (5.9-4) ...
+#16 3.503 Selecting previously unselected package zsh.
+#16 3.505 Preparing to unpack .../13-zsh_5.9-4+b2_amd64.deb ...
+#16 3.509 Unpacking zsh (5.9-4+b2) ...
+#16 3.577 Setting up fontconfig (2.14.1-4) ...
+#16 3.579 Regenerating fonts cache... done.
+#16 5.593 Setting up libpython3.11:amd64 (3.11.2-6) ...
+#16 5.594 Setting up wget (1.21.3-1+b2) ...
+#16 5.596 Setting up zsh-common (5.9-4) ...
+#16 5.610 Setting up python3-psutil (5.9.4-1+b1) ...
+#16 5.813 Setting up libpcre3:amd64 (2:8.39-15) ...
+#16 5.814 Setting up libpython3.11-dev:amd64 (3.11.2-6) ...
+#16 5.815 Setting up libcurl4:amd64 (7.88.1-10+deb12u5) ...
+#16 5.816 Setting up curl (7.88.1-10+deb12u5) ...
+#16 5.816 Setting up zsh (5.9-4+b2) ...
+#16 5.824 Setting up fonts-powerline (2.8.3-4) ...
+#16 5.825 Setting up python3-powerline (2.8.3-4) ...
+#16 6.023 Setting up libpython3-dev:amd64 (3.11.2-1+b1) ...
+#16 6.024 Setting up powerline (2.8.3-4) ...
+#16 6.080 debconf: unable to initialize frontend: Dialog
+#16 6.080 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#16 6.080 debconf: falling back to frontend: Readline
+#16 6.085 debconf: unable to initialize frontend: Readline
+#16 6.085 debconf: (This frontend requires a controlling tty.)
+#16 6.085 debconf: falling back to frontend: Teletype
+#16 6.290 Processing triggers for libc-bin (2.36-9+deb12u7) ...
+#16 6.299 Processing triggers for debianutils (5.7-0.5~deb12u1) ...
+#16 6.330 Processing triggers for fontconfig (2.14.1-4) ...
+#16 DONE 6.4s
+
+#17 [13/17] RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | bash -s -- -y --default-toolchain nightly-2024-05-28
+#17 0.901 info: downloading installer
+#17 3.604 info: profile set to 'default'
+#17 3.604 info: default host triple is x86_64-unknown-linux-gnu
+#17 3.604 info: syncing channel updates for 'nightly-2024-05-28-x86_64-unknown-linux-gnu'
+#17 5.175 info: latest update on 2024-05-28, rust version 1.80.0-nightly (84b40fc90 2024-05-27)
+#17 5.175 info: downloading component 'cargo'
+#17 6.258 info: downloading component 'clippy'
+#17 6.644 info: downloading component 'rust-docs'
+#17 8.445 info: downloading component 'rust-std'
+#17 11.19 info: downloading component 'rustc'
+#17 18.41 info: downloading component 'rustfmt'
+#17 18.79 info: installing component 'cargo'
+#17 19.44 info: installing component 'clippy'
+#17 19.71 info: installing component 'rust-docs'
+#17 21.25 info: installing component 'rust-std'
+#17 23.25 info: installing component 'rustc'
+#17 27.63 info: installing component 'rustfmt'
+#17 27.95 info: default toolchain set to 'nightly-2024-05-28-x86_64-unknown-linux-gnu'
+#17 27.95 
+#17 27.96   nightly-2024-05-28-x86_64-unknown-linux-gnu installed - rustc 1.80.0-nightly (84b40fc90 2024-05-27)
+#17 27.96 
+#17 27.96 
+#17 27.96 Rust is installed now. Great!
+#17 27.96 
+#17 27.96 To get started you may need to restart your current shell.
+#17 27.96 This would reload your PATH environment variable to include
+#17 27.96 Cargo's bin directory ($HOME/.cargo/bin).
+#17 27.96 
+#17 27.96 To configure your current shell, you need to source
+#17 27.96 the corresponding env file under $HOME/.cargo.
+#17 27.96 
+#17 27.96 This is usually done by running one of the following (note the leading DOT):
+#17 27.96 . "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+#17 27.96 source "$HOME/.cargo/env.fish"  # For fish
+#17 DONE 29.1s
+
+#18 [14/17] RUN cd fuzzer && cargo build --release
+#18 0.291     Updating crates.io index
+#18 2.657  Downloading crates ...
+#18 4.150   Downloaded addr2line v0.21.0
+#18 4.219   Downloaded ahash v0.8.11
+#18 4.331   Downloaded anstream v0.6.14
+#18 4.399   Downloaded smallvec v1.13.2
+#18 4.531   Downloaded aho-corasick v1.1.3
+#18 4.537   Downloaded static_assertions v1.1.0
+#18 4.544   Downloaded anstyle v1.0.7
+#18 4.555   Downloaded adler v1.0.2
+#18 4.560   Downloaded strsim v0.11.1
+#18 4.570   Downloaded strum v0.25.0
+#18 4.573   Downloaded anstyle-parse v0.2.4
+#18 4.581   Downloaded anstyle-query v1.0.3
+#18 4.638   Downloaded backtrace v0.3.71
+#18 4.726   Downloaded bindgen v0.69.4
+#18 4.734   Downloaded c2rust-bitfields v0.18.0
+#18 4.754   Downloaded cc v1.0.98
+#18 4.759   Downloaded cexpr v0.6.0
+#18 4.773   Downloaded clang-sys v1.8.0
+#18 4.817   Downloaded clap_builder v4.5.2
+#18 4.824   Downloaded cobs v0.2.3
+#18 4.825   Downloaded clap_lex v0.7.0
+#18 4.826   Downloaded colorchoice v1.0.1
+#18 4.917   Downloaded strum_macros v0.25.3
+#18 5.033   Downloaded serde_json v1.0.117
+#18 5.168   Downloaded syn v2.0.66
+#18 5.180   Downloaded syn v1.0.109
+#18 5.191   Downloaded tuple_list v0.1.3
+#18 5.192   Downloaded typed-builder-macro v0.16.2
+#18 5.204   Downloaded typed-builder v0.16.2
+#18 5.205   Downloaded typewit_proc_macros v1.8.1
+#18 5.260   Downloaded unicode-segmentation v1.11.0
+#18 5.277   Downloaded unicode-ident v1.0.12
+#18 5.292   Downloaded unicode-width v0.1.12
+#18 5.295   Downloaded unindent v0.2.3
+#18 5.331   Downloaded uuid v1.8.0
+#18 5.651   Downloaded signal-hook-registry v1.4.2
+#18 5.652   Downloaded signal-hook-mio v0.2.3
+#18 5.653   Downloaded zerocopy v0.7.34
+#18 5.669   Downloaded signal-hook v0.3.17
+#18 5.672   Downloaded shlex v1.3.0
+#18 5.673   Downloaded serial_test v2.0.0
+#18 5.675   Downloaded xxhash-rust v0.8.10
+#18 5.676   Downloaded which v4.4.2
+#18 5.678   Downloaded wait-timeout v0.2.0
+#18 5.679   Downloaded version_check v0.9.4
+#18 5.680   Downloaded utf8parse v0.2.1
+#18 5.681   Downloaded unicode-xid v0.2.4
+#18 5.682   Downloaded uds v0.4.2
+#18 5.684   Downloaded typewit v1.9.0
+#18 5.688   Downloaded target-lexicon v0.12.14
+#18 5.826   Downloaded serde_derive v1.0.203
+#18 5.829   Downloaded serial_test_derive v2.0.0
+#18 5.830   Downloaded serde v1.0.203
+#18 5.834   Downloaded pyo3 v0.21.2
+#18 5.855   Downloaded regex-automata v0.4.6
+#18 5.874   Downloaded libc v0.2.155
+#18 5.903   Downloaded ryu v1.0.18
+#18 5.906   Downloaded rustc-demangle v0.1.24
+#18 5.907   Downloaded rand_core v0.6.4
+#18 5.909   Downloaded pyo3-macros-backend v0.21.2
+#18 5.911   Downloaded pyo3-ffi v0.21.2
+#18 5.916   Downloaded nix v0.27.1
+#18 5.926   Downloaded bitflags v2.5.0
+#18 5.930   Downloaded bincode v1.3.3
+#18 5.931   Downloaded autocfg v1.3.0
+#18 5.933   Downloaded scopeguard v1.2.0
+#18 5.934   Downloaded rustversion v1.0.17
+#18 5.936   Downloaded rustc-hash v1.1.0
+#18 5.937   Downloaded regex v1.10.4
+#18 5.949   Downloaded ratatui v0.23.0
+#18 5.959   Downloaded rangemap v1.5.1
+#18 5.962   Downloaded quote v1.0.36
+#18 5.964   Downloaded pyo3-macros v0.21.2
+#18 5.965   Downloaded pyo3-build-config v0.21.2
+#18 5.966   Downloaded proc-macro2 v1.0.84
+#18 5.969   Downloaded prettyplease v0.2.20
+#18 5.971   Downloaded postcard v1.0.8
+#18 5.974   Downloaded portable-atomic v1.6.0
+#18 5.980   Downloaded paste v1.0.15
+#18 5.982   Downloaded parking_lot_core v0.9.10
+#18 5.984   Downloaded parking_lot v0.12.3
+#18 5.987   Downloaded once_cell v1.19.0
+#18 5.989   Downloaded num_enum_derive v0.7.2
+#18 5.990   Downloaded num_enum v0.7.2
+#18 5.994   Downloaded num-traits v0.2.19
+#18 5.997   Downloaded nom v7.1.3
+#18 6.002   Downloaded mio v0.8.11
+#18 6.008   Downloaded miniz_oxide v0.7.3
+#18 6.010   Downloaded minimal-lexical v0.2.1
+#18 6.014   Downloaded mimalloc v0.1.42
+#18 6.015   Downloaded memoffset v0.9.1
+#18 6.016   Downloaded meminterval v0.4.1
+#18 6.017   Downloaded rustix v0.38.34
+#18 6.039   Downloaded regex-syntax v0.8.3
+#18 6.048   Downloaded object v0.32.2
+#18 6.059   Downloaded gimli v0.28.1
+#18 6.067   Downloaded memchr v2.7.2
+#18 6.073   Downloaded match_cfg v0.1.0
+#18 6.074   Downloaded log v0.4.21
+#18 6.076   Downloaded lock_api v0.4.12
+#18 6.077   Downloaded libmimalloc-sys v0.1.38
+#18 6.084   Downloaded libm v0.2.8
+#18 6.091   Downloaded linux-raw-sys v0.4.14
+#18 6.141   Downloaded libloading v0.8.3
+#18 6.143   Downloaded lazycell v1.3.0
+#18 6.144   Downloaded lazy_static v1.4.0
+#18 6.145   Downloaded jobserver v0.1.31
+#18 6.147   Downloaded itoa v1.0.11
+#18 6.148   Downloaded itertools v0.12.1
+#18 6.154   Downloaded itertools v0.11.0
+#18 6.160   Downloaded is_terminal_polyfill v1.70.0
+#18 6.160   Downloaded indoc v2.0.5
+#18 6.163   Downloaded hostname v0.3.1
+#18 6.164   Downloaded home v0.5.9
+#18 6.165   Downloaded heck v0.4.1
+#18 6.166   Downloaded hashbrown v0.14.5
+#18 6.171   Downloaded glob v0.3.1
+#18 6.172   Downloaded getrandom v0.2.15
+#18 6.175   Downloaded errno v0.3.9
+#18 6.176   Downloaded erased-serde v0.3.31
+#18 6.178   Downloaded embedded-io v0.4.0
+#18 6.179   Downloaded either v1.12.0
+#18 6.181   Downloaded dashmap v5.5.3
+#18 6.183   Downloaded ctor v0.2.8
+#18 6.183   Downloaded crossterm v0.27.0
+#18 6.189   Downloaded content_inspector v0.2.4
+#18 6.191   Downloaded const_panic v0.2.8
+#18 6.194   Downloaded const_format_proc_macros v0.2.32
+#18 6.196   Downloaded const_format v0.2.32
+#18 6.200   Downloaded clap v4.5.4
+#18 6.207   Downloaded cfg-if v1.0.0
+#18 6.208   Downloaded cassowary v0.3.0
+#18 6.210   Downloaded c2rust-bitfields-derive v0.18.0
+#18 6.252    Compiling proc-macro2 v1.0.84
+#18 6.252    Compiling unicode-ident v1.0.12
+#18 6.252    Compiling libc v0.2.155
+#18 6.252    Compiling once_cell v1.19.0
+#18 6.252    Compiling autocfg v1.3.0
+#18 6.252    Compiling cfg-if v1.0.0
+#18 6.252    Compiling rustversion v1.0.17
+#18 6.252    Compiling serde v1.0.203
+#18 6.252    Compiling target-lexicon v0.12.14
+#18 6.256    Compiling parking_lot_core v0.9.10
+#18 6.257    Compiling smallvec v1.13.2
+#18 6.259    Compiling scopeguard v1.2.0
+#18 6.260    Compiling version_check v0.9.4
+#18 6.262    Compiling memchr v2.7.2
+#18 6.264    Compiling heck v0.4.1
+#18 6.264    Compiling glob v0.3.1
+#18 6.266    Compiling log v0.4.21
+#18 6.267    Compiling rustix v0.38.34
+#18 6.268    Compiling signal-hook v0.3.17
+#18 6.276    Compiling prettyplease v0.2.20
+#18 6.280    Compiling zerocopy v0.7.34
+#18 6.289    Compiling minimal-lexical v0.2.1
+#18 6.289    Compiling syn v1.0.109
+#18 6.291    Compiling linux-raw-sys v0.4.14
+#18 6.291    Compiling bitflags v2.5.0
+#18 6.291    Compiling either v1.12.0
+#18 6.291    Compiling regex-syntax v0.8.3
+#18 6.292    Compiling gimli v0.28.1
+#18 6.293    Compiling bindgen v0.69.4
+#18 6.293    Compiling home v0.5.9
+#18 6.293    Compiling serde_json v1.0.117
+#18 6.293    Compiling adler v1.0.2
+#18 6.293    Compiling paste v1.0.15
+#18 6.293    Compiling utf8parse v0.2.1
+#18 6.293    Compiling lazy_static v1.4.0
+#18 6.293    Compiling lazycell v1.3.0
+#18 6.293    Compiling ryu v1.0.18
+#18 6.293    Compiling shlex v1.3.0
+#18 6.293    Compiling typewit_proc_macros v1.8.1
+#18 6.293    Compiling cobs v0.2.3
+#18 6.293    Compiling rustc-hash v1.1.0
+#18 6.293    Compiling embedded-io v0.4.0
+#18 6.293    Compiling unicode-xid v0.2.4
+#18 6.294    Compiling rustc-demangle v0.1.24
+#18 6.294    Compiling libm v0.2.8
+#18 6.294    Compiling itoa v1.0.11
+#18 6.294    Compiling indoc v2.0.5
+#18 6.294    Compiling match_cfg v0.1.0
+#18 6.294    Compiling cassowary v0.3.0
+#18 6.294    Compiling anstyle v1.0.7
+#18 6.294    Compiling anstyle-query v1.0.3
+#18 6.294    Compiling colorchoice v1.0.1
+#18 6.294    Compiling tuple_list v0.1.3
+#18 6.294    Compiling xxhash-rust v0.8.10
+#18 6.294    Compiling is_terminal_polyfill v1.70.0
+#18 6.294    Compiling unicode-width v0.1.12
+#18 6.294    Compiling rand_core v0.6.4
+#18 6.294    Compiling portable-atomic v1.6.0
+#18 6.295    Compiling unicode-segmentation v1.11.0
+#18 6.295    Compiling static_assertions v1.1.0
+#18 6.295    Compiling clap_lex v0.7.0
+#18 6.295    Compiling strsim v0.11.1
+#18 6.295    Compiling rangemap v1.5.1
+#18 6.295    Compiling unindent v0.2.3
+#18 6.458    Compiling ahash v0.8.11
+#18 6.477    Compiling lock_api v0.4.12
+#18 6.480    Compiling memoffset v0.9.1
+#18 6.480    Compiling libloading v0.8.3
+#18 6.481    Compiling num-traits v0.2.19
+#18 6.495    Compiling clang-sys v1.8.0
+#18 6.639    Compiling anstyle-parse v0.2.4
+#18 6.643    Compiling typewit v1.9.0
+#18 6.643    Compiling miniz_oxide v0.7.3
+#18 6.648    Compiling itertools v0.11.0
+#18 6.694    Compiling itertools v0.12.1
+#18 6.702    Compiling aho-corasick v1.1.3
+#18 6.702    Compiling object v0.32.2
+#18 6.702    Compiling content_inspector v0.2.4
+#18 6.750    Compiling anstream v0.6.14
+#18 6.782    Compiling const_panic v0.2.8
+#18 6.822    Compiling nom v7.1.3
+#18 6.862    Compiling pyo3-build-config v0.21.2
+#18 6.886    Compiling libafl_bolts v0.12.0 (/home/participant/fuzzer/lib/LibAFL/libafl_bolts)
+#18 6.886    Compiling libafl v0.12.0 (/home/participant/fuzzer/lib/LibAFL/libafl)
+#18 6.899    Compiling clap_builder v4.5.2
+#18 6.911    Compiling quote v1.0.36
+#18 7.025    Compiling jobserver v0.1.31
+#18 7.033    Compiling syn v2.0.66
+#18 7.084    Compiling const_format_proc_macros v0.2.32
+#18 7.166    Compiling cc v1.0.98
+#18 7.465    Compiling regex-automata v0.4.6
+#18 7.499    Compiling const_format v0.2.32
+#18 7.588    Compiling signal-hook-registry v1.4.2
+#18 7.588    Compiling mio v0.8.11
+#18 7.588    Compiling getrandom v0.2.15
+#18 7.588    Compiling nix v0.27.1
+#18 7.592    Compiling uds v0.4.2
+#18 7.595    Compiling hostname v0.3.1
+#18 7.600    Compiling wait-timeout v0.2.0
+#18 7.696    Compiling pyo3-ffi v0.21.2
+#18 7.696    Compiling pyo3 v0.21.2
+#18 7.724    Compiling parking_lot v0.12.3
+#18 7.866    Compiling signal-hook-mio v0.2.3
+#18 7.908    Compiling crossterm v0.27.0
+#18 7.908    Compiling backtrace v0.3.71
+#18 7.908    Compiling libmimalloc-sys v0.1.38
+#18 7.932    Compiling which v4.4.2
+#18 8.091    Compiling cexpr v0.6.0
+#18 8.316    Compiling addr2line v0.21.0
+#18 8.616    Compiling regex v1.10.4
+#18 8.698    Compiling clap v4.5.4
+#18 9.082    Compiling c2rust-bitfields-derive v0.18.0
+#18 9.307    Compiling c2rust-bitfields v0.18.0
+#18 9.469    Compiling pyo3-macros-backend v0.21.2
+#18 9.857    Compiling serde_derive v1.0.203
+#18 9.857    Compiling num_enum_derive v0.7.2
+#18 9.857    Compiling strum_macros v0.25.3
+#18 9.858    Compiling serial_test_derive v2.0.0
+#18 9.858    Compiling typed-builder-macro v0.16.2
+#18 9.858    Compiling ctor v0.2.8
+#18 9.860    Compiling libafl_derive v0.12.0 (/home/participant/fuzzer/lib/LibAFL/libafl_derive)
+#18 10.28    Compiling num_enum v0.7.2
+#18 10.33    Compiling typed-builder v0.16.2
+#18 10.58    Compiling strum v0.25.0
+#18 10.62    Compiling ratatui v0.23.0
+#18 11.03    Compiling mimalloc v0.1.42
+#18 11.33    Compiling pyo3-macros v0.21.2
+#18 12.93    Compiling libafl_targets v0.12.0 (/home/participant/fuzzer/lib/LibAFL/libafl_targets)
+#18 13.86    Compiling hashbrown v0.14.5
+#18 13.86    Compiling postcard v1.0.8
+#18 13.86    Compiling erased-serde v0.3.31
+#18 13.86    Compiling uuid v1.8.0
+#18 13.86    Compiling bincode v1.3.3
+#18 13.86    Compiling meminterval v0.4.1
+#18 14.39    Compiling dashmap v5.5.3
+#18 14.65    Compiling serial_test v2.0.0
+#18 14.86 warning: unexpected `cfg` condition name: `nightly`
+#18 14.86   --> lib/LibAFL/libafl_bolts/src/lib.rs:10:13
+#18 14.86    |
+#18 14.86 10 | #![cfg_attr(nightly, feature(specialization))]
+#18 14.86    |             ^^^^^^^
+#18 14.86    |
+#18 14.86    = help: expected names are: `clippy`, `debug_assertions`, `doc`, `docsrs`, `doctest`, `feature`, `miri`, `overflow_checks`, `panic`, `proc_macro`, `relocation_model`, `rustfmt`, `sanitize`, `sanitizer_cfi_generalize_pointers`, `sanitizer_cfi_normalize_integers`, `target_abi`, `target_arch`, `target_endian`, `target_env`, `target_family`, `target_feature`, `target_has_atomic`, `target_has_atomic_equal_alignment`, `target_has_atomic_load_store`, `target_os`, `target_pointer_width`, `target_thread_local`, `target_vendor`, `test`, `ub_checks`, `unix`, and `windows`
+#18 14.86    = help: consider using a Cargo feature instead
+#18 14.86    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 14.86             [lints.rust]
+#18 14.86             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nightly)'] }
+#18 14.86    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nightly)");` to the top of the `build.rs`
+#18 14.86    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86    = note: `#[warn(unexpected_cfgs)]` on by default
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition name: `nightly`
+#18 14.86   --> lib/LibAFL/libafl_bolts/src/lib.rs:12:13
+#18 14.86    |
+#18 14.86 12 | #![cfg_attr(nightly, feature(portable_simd))]
+#18 14.86    |             ^^^^^^^
+#18 14.86    |
+#18 14.86    = help: consider using a Cargo feature instead
+#18 14.86    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 14.86             [lints.rust]
+#18 14.86             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nightly)'] }
+#18 14.86    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nightly)");` to the top of the `build.rs`
+#18 14.86    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition name: `nightly`
+#18 14.86   --> lib/LibAFL/libafl_bolts/src/lib.rs:14:13
+#18 14.86    |
+#18 14.86 14 | #![cfg_attr(nightly, feature(error_in_core))]
+#18 14.86    |             ^^^^^^^
+#18 14.86    |
+#18 14.86    = help: consider using a Cargo feature instead
+#18 14.86    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 14.86             [lints.rust]
+#18 14.86             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nightly)'] }
+#18 14.86    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nightly)");` to the top of the `build.rs`
+#18 14.86    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition name: `nightly`
+#18 14.86    --> lib/LibAFL/libafl_bolts/src/lib.rs:630:15
+#18 14.86     |
+#18 14.86 630 | #[cfg(all(not(nightly), feature = "std"))]
+#18 14.86     |               ^^^^^^^
+#18 14.86     |
+#18 14.86     = help: consider using a Cargo feature instead
+#18 14.86     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 14.86              [lints.rust]
+#18 14.86              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nightly)'] }
+#18 14.86     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nightly)");` to the top of the `build.rs`
+#18 14.86     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition name: `nightly`
+#18 14.86    --> lib/LibAFL/libafl_bolts/src/lib.rs:633:7
+#18 14.86     |
+#18 14.86 633 | #[cfg(nightly)]
+#18 14.86     |       ^^^^^^^
+#18 14.86     |
+#18 14.86     = help: consider using a Cargo feature instead
+#18 14.86     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 14.86              [lints.rust]
+#18 14.86              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nightly)'] }
+#18 14.86     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nightly)");` to the top of the `build.rs`
+#18 14.86     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition name: `target_arsch`
+#18 14.86   --> lib/LibAFL/libafl_bolts/src/cpu.rs:12:5
+#18 14.86    |
+#18 14.86 12 |     target_arsch = "riscv32"
+#18 14.86    |     ^^^^^^^^^^^^^^^^^^^^^^^^
+#18 14.86    |
+#18 14.86    = help: consider using a Cargo feature instead
+#18 14.86    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 14.86             [lints.rust]
+#18 14.86             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_arsch, values("riscv32"))'] }
+#18 14.86    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(target_arsch, values(\"riscv32\"))");` to the top of the `build.rs`
+#18 14.86    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 help: there is a config with a similar name and value
+#18 14.86    |
+#18 14.86 12 |     target_arch = "riscv32"
+#18 14.86    |     ~~~~~~~~~~~
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition name: `fature`
+#18 14.86     --> lib/LibAFL/libafl_bolts/src/llmp.rs:2531:19
+#18 14.86      |
+#18 14.86 2531 |             #[cfg(fature = "llmp_debug")]
+#18 14.86      |                   ^^^^^^^^^^^^^^^^^^^^^
+#18 14.86      |
+#18 14.86      = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 help: there is a config with a similar name and value
+#18 14.86      |
+#18 14.86 2531 |             #[cfg(feature = "llmp_debug")]
+#18 14.86      |                   ~~~~~~~
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition value: `freebsd`
+#18 14.86    --> lib/LibAFL/libafl_bolts/src/minibsod.rs:133:11
+#18 14.86     |
+#18 14.86 133 | #[cfg(all(target_vendor = "freebsd", target_arch = "aarch64"))]
+#18 14.86     |           ^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 14.86     |
+#18 14.86     = note: expected values for `target_vendor` are: `apple`, `espressif`, `fortanix`, `ibm`, `kmc`, `nintendo`, `nvidia`, `pc`, `risc0`, `sony`, `sun`, `unikraft`, `unknown`, `uwp`, `win7`, and `wrs`
+#18 14.86     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition value: `apple`
+#18 14.86    --> lib/LibAFL/libafl_bolts/src/minibsod.rs:887:7
+#18 14.86     |
+#18 14.86 887 | #[cfg(target_env = "apple")]
+#18 14.86     |       ^^^^^^^^^^^^^^^^^^^^
+#18 14.86     |
+#18 14.86     = note: expected values for `target_env` are: ``, `gnu`, `msvc`, `musl`, `newlib`, `nto70`, `nto71`, `ohos`, `p2`, `psx`, `relibc`, `sgx`, and `uclibc`
+#18 14.86     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 
+#18 14.86 warning: unexpected `cfg` condition value: `apple`
+#18 14.86    --> lib/LibAFL/libafl_bolts/src/minibsod.rs:973:5
+#18 14.86     |
+#18 14.86 973 |     target_env = "apple",
+#18 14.86     |     ^^^^^^^^^^^^^^^^^^^^
+#18 14.86     |
+#18 14.86     = note: expected values for `target_env` are: ``, `gnu`, `msvc`, `musl`, `newlib`, `nto70`, `nto71`, `ohos`, `p2`, `psx`, `relibc`, `sgx`, and `uclibc`
+#18 14.86     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 14.86 
+#18 16.67 warning: unexpected `cfg` condition name: `nightly`
+#18 16.67   --> lib/LibAFL/libafl/src/lib.rs:10:13
+#18 16.67    |
+#18 16.67 10 | #![cfg_attr(nightly, feature(specialization))]
+#18 16.67    |             ^^^^^^^
+#18 16.67    |
+#18 16.67    = help: expected names are: `clippy`, `debug_assertions`, `doc`, `docsrs`, `doctest`, `feature`, `miri`, `overflow_checks`, `panic`, `proc_macro`, `relocation_model`, `rustfmt`, `sanitize`, `sanitizer_cfi_generalize_pointers`, `sanitizer_cfi_normalize_integers`, `target_abi`, `target_arch`, `target_endian`, `target_env`, `target_family`, `target_feature`, `target_has_atomic`, `target_has_atomic_equal_alignment`, `target_has_atomic_load_store`, `target_os`, `target_pointer_width`, `target_thread_local`, `target_vendor`, `test`, `ub_checks`, `unix`, and `windows`
+#18 16.67    = help: consider using a Cargo feature instead
+#18 16.67    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 16.67             [lints.rust]
+#18 16.67             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nightly)'] }
+#18 16.67    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nightly)");` to the top of the `build.rs`
+#18 16.67    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 16.67    = note: `#[warn(unexpected_cfgs)]` on by default
+#18 16.67 
+#18 16.67 warning: unexpected `cfg` condition name: `nightly`
+#18 16.67   --> lib/LibAFL/libafl/src/lib.rs:12:13
+#18 16.67    |
+#18 16.67 12 | #![cfg_attr(nightly, feature(portable_simd))]
+#18 16.67    |             ^^^^^^^
+#18 16.67    |
+#18 16.67    = help: consider using a Cargo feature instead
+#18 16.67    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 16.67             [lints.rust]
+#18 16.67             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nightly)'] }
+#18 16.67    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nightly)");` to the top of the `build.rs`
+#18 16.67    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 16.67 
+#18 16.68 warning: unexpected `cfg` condition value: `no_std`
+#18 16.68   --> lib/LibAFL/libafl/src/observers/mod.rs:30:7
+#18 16.68    |
+#18 16.68 30 | #[cfg(feature = "no_std")]
+#18 16.68    |       ^^^^^^^^^^^^^^^^^^
+#18 16.68    |
+#18 16.68    = note: expected values for `feature` are: `adaptive_serialization`, `afl_exec_sec`, `agpl`, `arrayvec`, `async-std`, `backtrace`, `bincode`, `bitvec`, `casr`, `cli`, `cmin`, `concat-idents`, `concolic_mutation`, `corpus_btreemap`, `crossterm`, `default`, `derive`, `document-features`, `errors_backtrace`, `fork`, `frida_cli`, `futures`, `grammartec`, `gzip`, `handle_sigpipe`, `introspection`, `libafl_derive`, `libcasr`, `llmp_bind_public`, `llmp_broker_timeouts`, `llmp_compression`, `llmp_debug`, `llmp_small_maps`, `multipart_inputs`, and `nautilus` and 24 more
+#18 16.68    = help: consider adding `no_std` as a feature in `Cargo.toml`
+#18 16.68    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 16.68 
+#18 16.68 warning: unexpected `cfg` condition value: `no_std`
+#18 16.68    --> lib/LibAFL/libafl/src/observers/mod.rs:419:11
+#18 16.68     |
+#18 16.68 419 |     #[cfg(feature = "no_std")]
+#18 16.68     |           ^^^^^^^^^^^^^^^^^^
+#18 16.68     |
+#18 16.68     = note: expected values for `feature` are: `adaptive_serialization`, `afl_exec_sec`, `agpl`, `arrayvec`, `async-std`, `backtrace`, `bincode`, `bitvec`, `casr`, `cli`, `cmin`, `concat-idents`, `concolic_mutation`, `corpus_btreemap`, `crossterm`, `default`, `derive`, `document-features`, `errors_backtrace`, `fork`, `frida_cli`, `futures`, `grammartec`, `gzip`, `handle_sigpipe`, `introspection`, `libafl_derive`, `libcasr`, `llmp_bind_public`, `llmp_broker_timeouts`, `llmp_compression`, `llmp_debug`, `llmp_small_maps`, `multipart_inputs`, and `nautilus` and 24 more
+#18 16.68     = help: consider adding `no_std` as a feature in `Cargo.toml`
+#18 16.68     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 16.68 
+#18 16.69 warning: unexpected `cfg` condition value: `no_std`
+#18 16.69    --> lib/LibAFL/libafl/src/observers/mod.rs:461:19
+#18 16.69     |
+#18 16.69 461 |             #[cfg(feature = "no_std")]
+#18 16.69     |                   ^^^^^^^^^^^^^^^^^^
+#18 16.69     |
+#18 16.69     = note: expected values for `feature` are: `adaptive_serialization`, `afl_exec_sec`, `agpl`, `arrayvec`, `async-std`, `backtrace`, `bincode`, `bitvec`, `casr`, `cli`, `cmin`, `concat-idents`, `concolic_mutation`, `corpus_btreemap`, `crossterm`, `default`, `derive`, `document-features`, `errors_backtrace`, `fork`, `frida_cli`, `futures`, `grammartec`, `gzip`, `handle_sigpipe`, `introspection`, `libafl_derive`, `libcasr`, `llmp_bind_public`, `llmp_broker_timeouts`, `llmp_compression`, `llmp_debug`, `llmp_small_maps`, `multipart_inputs`, and `nautilus` and 24 more
+#18 16.69     = help: consider adding `no_std` as a feature in `Cargo.toml`
+#18 16.69     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 16.69 
+#18 16.69 warning: unexpected `cfg` condition value: `no_std`
+#18 16.69    --> lib/LibAFL/libafl/src/observers/mod.rs:486:11
+#18 16.69     |
+#18 16.69 486 |     #[cfg(feature = "no_std")]
+#18 16.69     |           ^^^^^^^^^^^^^^^^^^
+#18 16.69     |
+#18 16.69     = note: expected values for `feature` are: `adaptive_serialization`, `afl_exec_sec`, `agpl`, `arrayvec`, `async-std`, `backtrace`, `bincode`, `bitvec`, `casr`, `cli`, `cmin`, `concat-idents`, `concolic_mutation`, `corpus_btreemap`, `crossterm`, `default`, `derive`, `document-features`, `errors_backtrace`, `fork`, `frida_cli`, `futures`, `grammartec`, `gzip`, `handle_sigpipe`, `introspection`, `libafl_derive`, `libcasr`, `llmp_bind_public`, `llmp_broker_timeouts`, `llmp_compression`, `llmp_debug`, `llmp_small_maps`, `multipart_inputs`, and `nautilus` and 24 more
+#18 16.69     = help: consider adding `no_std` as a feature in `Cargo.toml`
+#18 16.69     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 16.69 
+#18 16.69 warning: unexpected `cfg` condition value: `no_std`
+#18 16.69    --> lib/LibAFL/libafl/src/observers/mod.rs:504:11
+#18 16.69     |
+#18 16.69 504 |     #[cfg(feature = "no_std")]
+#18 16.69     |           ^^^^^^^^^^^^^^^^^^
+#18 16.69     |
+#18 16.69     = note: expected values for `feature` are: `adaptive_serialization`, `afl_exec_sec`, `agpl`, `arrayvec`, `async-std`, `backtrace`, `bincode`, `bitvec`, `casr`, `cli`, `cmin`, `concat-idents`, `concolic_mutation`, `corpus_btreemap`, `crossterm`, `default`, `derive`, `document-features`, `errors_backtrace`, `fork`, `frida_cli`, `futures`, `grammartec`, `gzip`, `handle_sigpipe`, `introspection`, `libafl_derive`, `libcasr`, `llmp_bind_public`, `llmp_broker_timeouts`, `llmp_compression`, `llmp_debug`, `llmp_small_maps`, `multipart_inputs`, and `nautilus` and 24 more
+#18 16.69     = help: consider adding `no_std` as a feature in `Cargo.toml`
+#18 16.69     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 16.69 
+#18 18.29 warning: `libafl_bolts` (lib) generated 10 warnings
+#18 22.14 warning: unexpected `cfg` condition name: `nightly`
+#18 22.14  --> lib/LibAFL/libafl_targets/src/lib.rs:6:13
+#18 22.14   |
+#18 22.14 6 | #![cfg_attr(nightly, feature(portable_simd))]
+#18 22.14   |             ^^^^^^^
+#18 22.14   |
+#18 22.14   = help: expected names are: `clippy`, `debug_assertions`, `doc`, `docsrs`, `doctest`, `feature`, `miri`, `overflow_checks`, `panic`, `proc_macro`, `relocation_model`, `rustfmt`, `sanitize`, `sanitizer_cfi_generalize_pointers`, `sanitizer_cfi_normalize_integers`, `target_abi`, `target_arch`, `target_endian`, `target_env`, `target_family`, `target_feature`, `target_has_atomic`, `target_has_atomic_equal_alignment`, `target_has_atomic_load_store`, `target_os`, `target_pointer_width`, `target_thread_local`, `target_vendor`, `test`, `ub_checks`, `unix`, and `windows`
+#18 22.14   = help: consider using a Cargo feature instead
+#18 22.14   = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+#18 22.14            [lints.rust]
+#18 22.14            unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nightly)'] }
+#18 22.14   = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nightly)");` to the top of the `build.rs`
+#18 22.14   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 22.14   = note: `#[warn(unexpected_cfgs)]` on by default
+#18 22.14 
+#18 22.14 warning: unexpected `cfg` condition value: `introspection`
+#18 22.14  --> lib/LibAFL/libafl_targets/src/cmps/stages/aflpptracing.rs:4:7
+#18 22.14   |
+#18 22.14 4 | #[cfg(feature = "introspection")]
+#18 22.14   |       ^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 22.14   |
+#18 22.14   = note: expected values for `feature` are: `ahash`, `clippy`, `cmplog`, `cmplog_extended_instrumentation`, `common`, `coverage`, `default`, `forkserver`, `libfuzzer`, `libfuzzer_define_run_driver`, `libfuzzer_interceptors`, `libfuzzer_no_link_main`, `libfuzzer_oom`, `meminterval`, `observers`, `pointer_maps`, `sancov_8bit`, `sancov_cmplog`, `sancov_ctx`, `sancov_ngram4`, `sancov_ngram8`, `sancov_pcguard`, `sancov_pcguard_edges`, `sancov_pcguard_hitcounts`, `sancov_value_profile`, `sanitizer_interfaces`, `sanitizers_flags`, `std`, `whole_archive`, and `windows_asan`
+#18 22.14   = help: consider adding `introspection` as a feature in `Cargo.toml`
+#18 22.14   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+#18 22.14 
+#18 22.68 warning: `libafl_targets` (lib) generated 2 warnings
+#18 39.70 warning: `libafl` (lib) generated 7 warnings
+#18 39.70    Compiling summerschool v0.0.1 (/home/participant/fuzzer)
+#18 39.74 warning: unused import: `Path`
+#18 39.74   --> src/main.rs:13:12
+#18 39.74    |
+#18 39.74 13 |     path::{Path, PathBuf},
+#18 39.74    |            ^^^^
+#18 39.74    |
+#18 39.74    = note: `#[warn(unused_imports)]` on by default
+#18 39.74 
+#18 39.74 warning: unused import: `libafl::prelude::HasObserverName`
+#18 39.74   --> src/main.rs:18:5
+#18 39.74    |
+#18 39.74 18 | use libafl::prelude::HasObserverName;
+#18 39.74    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused import: `libafl_bolts::AsIter`
+#18 39.74   --> src/main.rs:19:5
+#18 39.74    |
+#18 39.74 19 | use libafl_bolts::AsIter;
+#18 39.74    |     ^^^^^^^^^^^^^^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused import: `libafl::prelude::UsesObserver`
+#18 39.74   --> src/main.rs:20:5
+#18 39.74    |
+#18 39.74 20 | use libafl::prelude::UsesObserver;
+#18 39.74    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused import: `libafl::prelude::ObserversTuple`
+#18 39.74   --> src/main.rs:22:5
+#18 39.74    |
+#18 39.74 22 | use libafl::prelude::ObserversTuple;
+#18 39.74    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused import: `libafl::prelude::HasObservers`
+#18 39.74   --> src/main.rs:29:5
+#18 39.74    |
+#18 39.74 29 | use libafl::prelude::HasObservers;
+#18 39.74    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused imports: `Deserialize` and `Serialize`
+#18 39.74   --> src/main.rs:33:13
+#18 39.74    |
+#18 39.74 33 | use serde::{Deserialize, Serialize};
+#18 39.74    |             ^^^^^^^^^^^  ^^^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused imports: `HasTargetBytes`, `SimpleRestartingEventManager`, and `TracingStage`
+#18 39.74   --> src/main.rs:39:14
+#18 39.74    |
+#18 39.74 39 |     events::{SimpleRestartingEventManager, SimpleEventManager},
+#18 39.74    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 39.74 ...
+#18 39.74 44 |     inputs::{BytesInput, HasTargetBytes},
+#18 39.74    |                          ^^^^^^^^^^^^^^
+#18 39.74 ...
+#18 39.74 61 |         StdMutationalStage, TracingStage,
+#18 39.74    |                             ^^^^^^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused imports: `AsSlice` and `os::dup2`
+#18 39.74   --> src/main.rs:69:5
+#18 39.74    |
+#18 39.74 69 |     os::dup2,
+#18 39.74    |     ^^^^^^^^
+#18 39.74 ...
+#18 39.74 73 |     AsSlice,
+#18 39.74    |     ^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused import: `std_edges_map_observer`
+#18 39.74   --> src/main.rs:79:5
+#18 39.74    |
+#18 39.74 79 |     std_edges_map_observer, CmpLogObserver,
+#18 39.74    |     ^^^^^^^^^^^^^^^^^^^^^^
+#18 39.74 
+#18 39.74 warning: unused import: `libafl_bolts::Named`
+#18 39.74   --> src/main.rs:87:5
+#18 39.74    |
+#18 39.74 87 | use libafl_bolts::Named;
+#18 39.74    |     ^^^^^^^^^^^^^^^^^^^
+#18 39.74 
+#18 39.78 warning: use of deprecated method `pyo3::Python::<'py>::import`: `Python::import` will be replaced by `Python::import_bound` in a future PyO3 version
+#18 39.78    --> src/main.rs:252:25
+#18 39.78     |
+#18 39.78 252 |             let pm = py.import("execution")?; // Only do this once
+#18 39.78     |                         ^^^^^^
+#18 39.78     |
+#18 39.78     = note: `#[warn(deprecated)]` on by default
+#18 39.78 
+#18 39.79 warning: use of deprecated method `pyo3::Python::<'py>::import`: `Python::import` will be replaced by `Python::import_bound` in a future PyO3 version
+#18 39.79    --> src/main.rs:377:21
+#18 39.79     |
+#18 39.79 377 |         let pm = py.import("execution")?; // Only do this once
+#18 39.79     |                     ^^^^^^
+#18 39.79 
+#18 39.83 warning: unused import: `libafl::prelude::MapObserver`
+#18 39.83   --> src/main.rs:23:5
+#18 39.83    |
+#18 39.83 23 | use libafl::prelude::MapObserver;
+#18 39.83    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#18 39.83 
+#18 39.83 warning: unused import: `Read`
+#18 39.83   --> src/main.rs:12:16
+#18 39.83    |
+#18 39.83 12 |     io::{self, Read, Write},
+#18 39.83    |                ^^^^
+#18 39.83 
+#18 39.83 warning: unused variable: `r`
+#18 39.83    --> src/main.rs:132:13
+#18 39.83     |
+#18 39.83 132 |         let r = r?;
+#18 39.83     |             ^ help: if this is intentional, prefix it with an underscore: `_r`
+#18 39.83     |
+#18 39.83     = note: `#[warn(unused_variables)]` on by default
+#18 39.83 
+#18 39.83 warning: unused variable: `fuzzer`
+#18 39.83    --> src/main.rs:220:9
+#18 39.83     |
+#18 39.83 220 |         fuzzer: &mut Z,
+#18 39.83     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_fuzzer`
+#18 39.83 
+#18 39.83 warning: unused variable: `executor`
+#18 39.83    --> src/main.rs:221:9
+#18 39.83     |
+#18 39.83 221 |         executor: &mut E,
+#18 39.83     |         ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_executor`
+#18 39.83 
+#18 39.83 warning: unused variable: `mgr`
+#18 39.83    --> src/main.rs:223:9
+#18 39.83     |
+#18 39.83 223 |         mgr: &mut EM,
+#18 39.83     |         ^^^ help: if this is intentional, prefix it with an underscore: `_mgr`
+#18 39.83 
+#18 39.84 warning: unused variable: `cmplog_observer`
+#18 39.84    --> src/main.rs:431:9
+#18 39.84     |
+#18 39.84 431 |     let cmplog_observer = CmpLogObserver::new("cmplog", true);
+#18 39.84     |         ^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_cmplog_observer`
+#18 39.84 
+#18 39.88 warning: variable does not need to be mutable
+#18 39.88    --> src/main.rs:509:9
+#18 39.88     |
+#18 39.88 509 |     let mut remapped = remapped.as_mut_slice();
+#18 39.88     |         ----^^^^^^^^
+#18 39.88     |         |
+#18 39.88     |         help: remove this `mut`
+#18 39.88     |
+#18 39.88     = note: `#[warn(unused_mut)]` on by default
+#18 39.88 
+#18 89.79 warning: `summerschool` (bin "summerschool") generated 21 warnings (run `cargo fix --bin "summerschool"` to apply 12 suggestions)
+#18 89.79     Finished `release` profile [optimized + debuginfo] target(s) in 1m 29s
+#18 DONE 89.9s
+
+#19 [15/17] RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" --  -t agnoster
+#19 0.297 --2024-05-29 12:26:32--  https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh
+#19 0.305 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+#19 0.306 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+#19 0.317 HTTP request sent, awaiting response... 200 OK
+#19 0.638 Length: 5426 (5.3K) [text/plain]
+#19 0.638 Saving to: ‘STDOUT’
+#19 0.638 
+#19 0.638      0K .....                                                 100% 32.6M=0s
+#19 0.638 
+#19 0.638 2024-05-29 12:26:33 (32.6 MB/s) - written to stdout [5426/5426]
+#19 0.638 
+#19 0.643 
+#19 0.643 Installing Oh-My-Zsh with:
+#19 0.643   THEME   = agnoster
+#19 0.643   PLUGINS = 
+#19 0.643 
+#19 0.645 ###### Installing dependencies for debian
+#19 0.682 Hit:1 http://deb.debian.org/debian bookworm InRelease
+#19 0.691 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#19 0.702 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#19 0.811 Get:4 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [157 kB]
+#19 0.852 Fetched 260 kB in 0s (1354 kB/s)
+#19 0.852 Reading package lists...
+#19 1.264 Reading package lists...
+#19 1.669 Building dependency tree...
+#19 1.746 Reading state information...
+#19 1.841 git is already the newest version (1:2.39.2-1.1).
+#19 1.841 curl is already the newest version (7.88.1-10+deb12u5).
+#19 1.841 zsh is already the newest version (5.9-4+b2).
+#19 1.841 The following additional packages will be installed:
+#19 1.841   libc-l10n
+#19 1.856 The following NEW packages will be installed:
+#19 1.856   libc-l10n locales
+#19 1.882 0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+#19 1.882 Need to get 4577 kB of archives.
+#19 1.882 After this operation, 20.7 MB of additional disk space will be used.
+#19 1.882 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 libc-l10n all 2.36-9+deb12u7 [675 kB]
+#19 1.948 Get:2 http://deb.debian.org/debian-security bookworm-security/main amd64 locales all 2.36-9+deb12u7 [3902 kB]
+#19 2.387 debconf: delaying package configuration, since apt-utils is not installed
+#19 2.405 Fetched 4577 kB in 0s (10.6 MB/s)
+#19 2.415 Selecting previously unselected package libc-l10n.
+#19 2.415 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 20861 files and directories currently installed.)
+#19 2.425 Preparing to unpack .../libc-l10n_2.36-9+deb12u7_all.deb ...
+#19 2.425 Unpacking libc-l10n (2.36-9+deb12u7) ...
+#19 2.488 Selecting previously unselected package locales.
+#19 2.489 Preparing to unpack .../locales_2.36-9+deb12u7_all.deb ...
+#19 2.490 Unpacking locales (2.36-9+deb12u7) ...
+#19 2.799 Setting up libc-l10n (2.36-9+deb12u7) ...
+#19 2.800 Setting up locales (2.36-9+deb12u7) ...
+#19 2.855 debconf: unable to initialize frontend: Dialog
+#19 2.855 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#19 2.855 debconf: falling back to frontend: Readline
+#19 2.860 debconf: unable to initialize frontend: Readline
+#19 2.860 debconf: (This frontend requires a controlling tty.)
+#19 2.860 debconf: falling back to frontend: Teletype
+#19 3.172 Generating locales (this might take a while)...
+#19 3.176 Generation complete.
+#19 3.212 Reading package lists...
+#19 3.615 Building dependency tree...
+#19 3.690 Reading state information...
+#19 3.812 The following NEW packages will be installed:
+#19 3.812   locales-all
+#19 3.834 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#19 3.834 Need to get 10.7 MB of archives.
+#19 3.834 After this operation, 233 MB of additional disk space will be used.
+#19 3.834 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 locales-all amd64 2.36-9+deb12u7 [10.7 MB]
+#19 4.826 debconf: delaying package configuration, since apt-utils is not installed
+#19 4.842 Fetched 10.7 MB in 1s (11.6 MB/s)
+#19 4.858 Selecting previously unselected package locales-all.
+#19 4.858 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21519 files and directories currently installed.)
+#19 4.865 Preparing to unpack .../locales-all_2.36-9+deb12u7_amd64.deb ...
+#19 4.866 Unpacking locales-all (2.36-9+deb12u7) ...
+#19 5.990 Setting up locales-all (2.36-9+deb12u7) ...
+#19 6.005 Generating locales (this might take a while)...
+#19 6.009 Generation complete.
+#19 6.015   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#19 6.015                                  Dload  Upload   Total   Spent    Left  Speed
+#19 6.015   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 18381  100 18381    0     0   511k      0 --:--:-- --:--:-- --:--:--  527k
+#19 6.053 Cloning Oh My Zsh...
+#19 7.674 From https://github.com/ohmyzsh/ohmyzsh
+#19 7.674  * [new branch]      master     -> origin/master
+#19 7.744 branch 'master' set up to track 'origin/master'.
+#19 7.744 Already on 'master'
+#19 7.744 /tmp
+#19 7.744 
+#19 7.744 Looking for an existing zsh config...
+#19 7.744 Found /root/.zshrc. Backing up to /root/.zshrc.pre-oh-my-zsh
+#19 7.748 Using the Oh My Zsh template file and adding it to /root/.zshrc.
+#19 7.752 
+#19 7.752          __                                     __   
+#19 7.752   ____  / /_     ____ ___  __  __   ____  _____/ /_  
+#19 7.752  / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ 
+#19 7.752 / /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / 
+#19 7.752 \____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  
+#19 7.752                         /____/                       ....is now installed!
+#19 7.752 
+#19 7.752 
+#19 7.752 Before you scream Oh My Zsh! look over the `.zshrc` file to select plugins, themes, and options.
+#19 7.752 
+#19 7.752 • Follow us on Twitter: https://twitter.com/ohmyzsh
+#19 7.753 • Join our Discord community: https://discord.gg/ohmyzsh
+#19 7.753 • Get stickers, t-shirts, coffee mugs and more: https://shop.planetargon.com/collections/oh-my-zsh
+#19 7.753 
+#19 7.753 Run zsh to try it out.
+#19 DONE 8.1s
+
+#20 [16/17] RUN chsh -s /bin/zsh
+#20 DONE 0.3s
+
+#21 [17/17] RUN chown -R participant:participant /home/participant
+#21 DONE 2.1s
+
+#22 exporting to image
+#22 exporting layers
+#22 exporting layers 6.1s done
+#22 writing image sha256:968cc22417d33cbf3725753a824ec8e16d1056b1d0a8bc12361b7f814e4979e1 done
+#22 naming to docker.io/library/student-fuzzer:nbars_competition_fuzzer_private_v0_5_1_1716985362 done
+#22 DONE 6.1s
+STDERR vvvvvvvvvvvvvvvvvv
