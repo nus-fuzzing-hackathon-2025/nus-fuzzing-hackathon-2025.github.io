@@ -1,5 +1,7 @@
 from typing import List, Tuple
 import json
+import sys
+import os
 
 
 def generate_html_rows(data: List[Tuple[int, str, int]]) -> str:
@@ -28,13 +30,18 @@ def update_html_autogen_rows(html_str: str, new_rows: str) -> str:
 
 
 def main():
+    if not os.path.exists("eval_summary.json"):
+        sys.exit(1)
+    if not os.path.exists("index.html"):
+        sys.exit(1)
+
     html_str = open("index.html", "r").read()
-    with open("data/eval_summary.json", "r") as f:
+    with open("eval_summary.json", "r") as f:
         entries = json.load(f)
 
-    # Load original HTML
     with open("index.html", "r") as f:
         html_str = f.read()
+
     new_rows_str = generate_html_rows(entries)
     print(new_rows_str)
     updated_html = update_html_autogen_rows(html_str, new_rows_str)
