@@ -27,17 +27,6 @@ def update_html_autogen_rows(html_str: str, new_rows: str) -> str:
     return pattern.sub(replacement, html_str)
 
 
-entries = [
-    (1, "dummy_submission1", 426),
-    (2, "dummy_submission2", 10),
-    (3, "dummy_submission3", 200),
-    (4, "dummy_submission4", 300),
-    (5, "dummy_submission5", 400),
-    (6, "dummy_submission6", 500),
-    (7, "dummy_submission7", 600),
-]
-
-
 def main():
     html_str = open("index.html", "r").read()
     with open("data/eval_summary.json", "r") as f:
@@ -47,8 +36,8 @@ def main():
     with open("index.html", "r") as f:
         html_str = f.read()
     new_rows_str = generate_html_rows(entries)
+    print(new_rows_str)
     updated_html = update_html_autogen_rows(html_str, new_rows_str)
-    # Save updated HTML
     with open("index.html", "w") as f:
         f.write(updated_html)
 

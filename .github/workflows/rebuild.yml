@@ -14,15 +14,13 @@ jobs:
       - name: Pull data from repo1
         run: |
           git clone https://x-access-token:${{ secrets.REPO_ACCESS_TOKEN }}@github.com/nus-fuzzing-hackathon-2025/sql-fuzz-hackathon data-source
-          cp -r data-source/data data  # adjust based on your structure
-          rm -rf data-source
+          cp -r data-source/data/* data/
 
       - name: Build site
         run: |
-          # For example: mkdocs build
-          # or your static site generator command
           echo "build step here"
           python refresh.py
+          echo $?
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
