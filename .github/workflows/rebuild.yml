@@ -1,0 +1,30 @@
+name: Update GitHub Pages site
+
+on:
+  repository_dispatch:
+    types: [update-data]
+
+jobs:
+  update-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Pull data from repo1
+        run: |
+          git clone https://github.com/nus-fuzzing-hackathon-2025/sql-fuzz-hackathon data-source
+          cp -r data-source/data data  # adjust based on your structure
+          rm -rf data-source
+
+      - name: Build site
+        run: |
+          # For example: mkdocs build
+          # or your static site generator command
+          echo "build step here"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .# where your built site lives
