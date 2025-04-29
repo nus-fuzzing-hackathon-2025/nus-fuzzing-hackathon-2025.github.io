@@ -19,6 +19,7 @@ jobs:
         run: |
           git clone https://x-access-token:${{ secrets.REPO_ACCESS_TOKEN }}@github.com/nus-fuzzing-hackathon-2025/sql-fuzz-hackathon tmp-repo-data
           cp  tmp-repo-data/data/*.json ./
+          rm tmp-repo-data
 
       - name: Build site
         run: |
