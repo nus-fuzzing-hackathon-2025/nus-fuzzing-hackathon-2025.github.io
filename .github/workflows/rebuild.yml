@@ -21,9 +21,10 @@ jobs:
           echo "build step here"
           python refresh.py
           echo $?
+          cat index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{secrets.REPO_ACCESS_TOKEN }}
-          publish_dir: .#
+          publish_dir: .
