@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzzing Competition</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTable for Benchmarking Submissions
+            $('#myTable').DataTable();
+
+            // Initialize DataTable for Leaderboard with default sorting and custom page length options
+            $('#leaderboardTable').DataTable({
+                "order": [[2, 'desc']],  // Default sorting by the third column ("Found") in descending order
+                "lengthMenu": [10, 25, 50, 75, 100],  // Custom page length options including '5'
+                "pageLength": 10  // Default number of rows to display
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reports">Reports</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="build-logs">Logs</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="d-flex justify-content-center align-items-center vh-10 flex-column">
+        <main>
+            <br>
+            <h1>Fuzzing Competition: Summer School 2025</h1>
+            <br>
+            <h4>  Template Repository:  <a href="https://github.com/nus-fuzzing-hackathon-2025/template_fuzzer">https://github.com/nus-fuzzing-hackathon-2025/template_fuzzer</a></h4>
+            <div class="container mt-5">
+                <h2 class="mb-4">Leaderboard</h2>
+                <table class="table table-bordered table-striped table-hover" id="leaderboardTable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Rank</th>
+                            <th scope="col">Tool</th>
+                            <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- START_AUTOGEN_TABLE_ROWS -->
+<tr>
+    <td>1</td>
+    <td>submission_01</td>
+    <td>100</td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>submission_02</td>
+    <td>80</td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>submission_03</td>
+    <td>70</td>
+</tr>
+<tr>
+    <td>4</td>
+    <td>submission_04</td>
+    <td>60</td>
+</tr>
+<tr>
+    <td>5</td>
+    <td>submission_05</td>
+    <td>50</td>
+</tr>
+<tr>
+    <td>6</td>
+    <td>submission_06</td>
+    <td>40</td>
+</tr>
+<tr>
+    <td>7</td>
+    <td>submission_07</td>
+    <td>30</td>
+</tr>
+<tr>
+    <td>8</td>
+    <td>submission_08</td>
+    <td>20</td>
+</tr>
+<!-- END_AUTOGEN_TABLE_ROWS -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="container mt-5">
+                <h2 class="mb-4">Benchmarking Submissions</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover" id="myTable">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>Owner</th>
+                                <th>Repo</th>
+                                <th>Release Name</th>
+                                <th>Release Date</th>
+                                <th>Image Built</th>
+                                <th>Running</th>
+                                <th>Finished</th>
+                                <th>Report Ready</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
