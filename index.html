@@ -58,7 +58,7 @@
                             <th scope="col">Advanced</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="student_fuzzer_records">
                     <!-- START_AUTOGEN_TABLE_ROWS -->
 <tr>
     <td>1</td>
@@ -147,4 +147,9 @@
         </main>
     </div>
 </body>
+fetch("https://raw.githubusercontent.com/nus-fuzzing-hackathon-2025/nus-fuzzing-hackathon-2025.github.io/gh-pages/data/eval_summary.json")
+  .then(response => response.json())
+  .then(data => {
+    console.log("Fetched JSON:", data);
+  });
 </html>
