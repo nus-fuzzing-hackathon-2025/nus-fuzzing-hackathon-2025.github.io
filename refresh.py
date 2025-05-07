@@ -12,10 +12,10 @@ def generate_html_rows(data: List[Tuple[int, str, int]]) -> str:
     <td>{no}</td>
     <td>{submission_id}</td>
     <td>{score}</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>NA</td>
+    <td>NA</td>
+    <td>NA</td>
+    <td>NA</td>
 </tr>
         """
         html_rows.append(row.strip())
