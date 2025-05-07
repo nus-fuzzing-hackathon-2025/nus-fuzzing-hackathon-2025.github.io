@@ -24,8 +24,10 @@ jobs:
 
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add -A -f
+          git add -A
           git commit -m "uploading result for a new submission "
+
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN  }}@github.com/nus-fuzzing-hackathon-2025/nus-fuzzing-hackathon-2025.github.io.git
 
       #- name: Deploy to GitHub Pages
       #  uses: peaceiris/actions-gh-pages@v3
