@@ -1,5 +1,6 @@
 name: Update GitHub Pages site
-
+permissions:
+  contents: write
 on:
   repository_dispatch:
     types: [update-data]
@@ -15,22 +16,20 @@ jobs:
           submodules: false 
 
 
-      - name: Pull data
+      - name: Sync data
         run: |
           git clone https://x-access-token:${{ secrets.REPO_ACCESS_TOKEN }}@github.com/nus-fuzzing-hackathon-2025/sql-fuzz-hackathon tmp-repo-data
           cp  tmp-repo-data/data/*.json ./
           rm -rf tmp-repo-data
 
-      - name: Build site
-        run: |
-          echo "build step here"
-          python refresh.py
-          echo $?
-          cat index.html
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add -A -f
+          git commit -m "uploading result for a new submission "
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{secrets.REPO_ACCESS_TOKEN }}
-          submodules: false 
-          publish_dir: .
+      #- name: Deploy to GitHub Pages
+      #  uses: peaceiris/actions-gh-pages@v3
+      #  with:
+      #    github_token: ${{secrets.REPO_ACCESS_TOKEN }}
+      #    submodules: false 
+      #    publish_dir: .
