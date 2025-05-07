@@ -147,9 +147,34 @@
         </main>
     </div>
 </body>
-fetch("https://raw.githubusercontent.com/nus-fuzzing-hackathon-2025/nus-fuzzing-hackathon-2025.github.io/gh-pages/data/eval_summary.json")
-  .then(response => response.json())
-  .then(data => {
-    console.log("Fetched JSON:", data);
-  });
-</html>
+<script>
+    const JSON_URL = "https://nus-fuzzing-hackathon-2025.github.io/data/eval_summary.json";
+
+    async function fetchAndRenderData() {
+      try {
+        const response = await fetch(JSON_URL);
+        const data = await response.json();
+
+        const tableBody = document.getElementById("student_fuzzer_records");
+        tableBody.innerHTML = ""; // Clear existing rows if any
+
+        data.forEach(([no, submissionId, score]) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${no}</td>
+            <td>${submissionId}</td>
+            <td>${score}</td>
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      } catch (error) {
+        console.error("Error fetching or rendering data:", error);
+      }
+    }
+
+    fetchAndRenderData();
+</script>
