@@ -18,7 +18,7 @@
             // Initialize DataTable for Leaderboard with default sorting and custom page length options
             $('#leaderboardTable').DataTable({
                 "order": [[2, 'desc']],  // Default sorting by the third column ("Found") in descending order
-                "lengthMenu": [10, 25, 50, 75, 100],  // Custom page length options including '5'
+                "lengthMenu": [25, 50, 75, 100],  // Custom page length options including '5'
                 "pageLength": 30  // Default number of rows to display
             });
         });
@@ -78,16 +78,16 @@
         const tableBody = document.getElementById("student_fuzzer_records");
         tableBody.innerHTML = ""; // Clear existing rows if any
 
-        data.forEach(([no, submissionId, score]) => {
+        data.forEach(([no, submissionId, score, n_basic, n_medium, n_advanced]) => {
           const row = document.createElement("tr");
           row.innerHTML = `
             <td>${no}</td>
             <td>${submissionId}</td>
             <td>${score}</td>
             <td>NA</td>
-            <td>NA</td>
-            <td>NA</td>
-            <td>NA</td>
+            <td>n_basic</td>
+            <td>n_medium</td>
+            <td>n_advanced</td>
           `;
           tableBody.appendChild(row);
         });
