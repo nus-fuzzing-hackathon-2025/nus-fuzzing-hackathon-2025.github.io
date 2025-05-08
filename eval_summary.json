@@ -1,7 +1,7 @@
 [
     [
         1,
-        "nus-fuzzing-hackathon-2025@template_fuzzer-20250507-050928",
+        "template_fuzzer-v24",
         1,
         1,
         0,
@@ -9,23 +9,10 @@
     ],
     [
         2,
-        "nus-fuzzing-hackathon-2025@template_fuzzer-20250507-050928",
-        1,
-        1,
-        0,
-        0
-    ],
-    [
-        3,
-        "nus-fuzzing-hackathon-2025@template_fuzzer-20250507-050928",
-        1,
-        1,
-        0,
-        0
-    ],
-    [
-        4,
         "template_fuzzer-v24",
-        1
+        2,
+        2,
+        0,
+        0
     ]
 ]
