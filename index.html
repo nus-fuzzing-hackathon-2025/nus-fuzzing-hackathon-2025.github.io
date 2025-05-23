@@ -75,11 +75,11 @@
 
         const tableBody = document.getElementById("student_fuzzer_records");
         tableBody.innerHTML = ""; // Clear existing rows if any
-
-        data.forEach(([no, submissionId, score, n_basic, n_medium, n_advanced]) => {
+         let no = 1;
+        for (const [submissionId, [score, n_basic, n_medium, n_advanced]] of Object.entries(data)) {
           const row = document.createElement("tr");
           row.innerHTML = `
-            <td>${no}</td>
+            <td>${no++}</td>
             <td>${submissionId}</td>
             <td>${score}</td>
             <td>${n_basic}</td>
@@ -87,10 +87,11 @@
             <td>${n_advanced}</td>
           `;
           tableBody.appendChild(row);
-        });
+        }
       } catch (error) {
         console.error("Error fetching or rendering data:", error);
       }
+
     }
 
     fetchAndRenderData();
