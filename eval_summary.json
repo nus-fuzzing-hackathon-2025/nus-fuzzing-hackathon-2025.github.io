@@ -1,5 +1,28 @@
 [
-
+    [
+        1,
+        "template_fuzzer-v24",
+        1,
+        1,
+        0,
+        0
+    ],
+    [
+        2,
+        "template_fuzzer-v24",
+        2,
+        2,
+        0,
+        0
+    ],
+    [
+        3,
+        "template_fuzzer-v24",
+        2,
+        2,
+        0,
+        0
+    ],
     [
         4,
         "template_fuzzer-v35",
@@ -46,6 +69,14 @@
         18,
         1,
         17,
+        0
+    ],
+    [
+        10,
+        "sql-fuzzing-framework-suyang-v5",
+        30,
+        1,
+        29,
         0
     ]
 ]
