@@ -19,6 +19,9 @@ jobs:
       - name: Sync data
         run: |
           git clone https://x-access-token:${{ secrets.REPO_ACCESS_TOKEN }}@github.com/nus-fuzzing-hackathon-2025/sql-fuzz-hackathon tmp-repo-data
+          cd tmp-repo-data
+          git checkout x9Tg7pQwZ2Lf
+          cd ..
           cp  tmp-repo-data/data/eval_summary.json . 
           rm -rf tmp-repo-data
 
