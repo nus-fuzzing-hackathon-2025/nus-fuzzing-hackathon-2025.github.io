@@ -89,4 +89,19 @@
     }
 
     fetchAndRenderData();
+
+    // Add badge on draw (after sorting, filtering, or paging)
+    leaderboardTable.on('draw', function () {
+        // Remove previous badges
+        $('#leaderboardTable tbody tr td:first-child .badge').remove();
+
+        // Get the first two visible rows and add badges
+        $('#leaderboardTable tbody tr:visible').each(function (index) {
+            if (index === 0) {
+                $(this).find('td').eq(0).prepend('<span class="badge badge-warning mr-1">🥇</span>');
+            } else if (index === 1) {
+                $(this).find('td').eq(0).prepend('<span class="badge badge-secondary mr-1">🥈</span>');
+            }
+        });
+    });
 </script>
