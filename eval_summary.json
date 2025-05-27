@@ -5,11 +5,23 @@
         0,
         3
     ],
+    "hackathon-tbd-v4": [
+        10,
+        7,
+        1,
+        2
+    ],
     "hackathon-baseline-v1": [
         9,
         3,
         2,
         4
+    ],
+    "hackathon-why-v2": [
+        6,
+        1,
+        3,
+        2
     ],
     "hackathon-neo-v1": [
         5,
@@ -21,18 +33,6 @@
         5,
         2,
         1,
-        2
-    ],
-    "hackathon-tbd-v4": [
-        10,
-        7,
-        1,
-        2
-    ],
-    "hackathon-why-v2": [
-        6,
-        1,
-        3,
         2
     ],
     "hackathon-temp-v2": [
