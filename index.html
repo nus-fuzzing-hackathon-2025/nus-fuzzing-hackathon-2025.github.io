@@ -10,13 +10,6 @@
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        const leaderboardTable = $('#leaderboardTable').DataTable({
-        "order": [[2, 'desc']],
-        "lengthMenu": [25, 50, 75, 100],
-        "pageLength": 30
-    });
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
@@ -39,6 +32,9 @@
             <br>
             <div class="container mt-5">
                 <h2 class="mb-4">Leaderboard</h2>
+          <p class="text-muted">
+            <strong>Note:</strong> The leaderboard displays only your latest submission, not your full submission history.
+          </p>
                 <table class="table table-bordered table-striped table-hover" id="leaderboardTable">
                     <thead class="thead-dark">
                         <tr>
@@ -89,12 +85,14 @@
     }
 
     fetchAndRenderData();
+        const leaderboardTable = $('#leaderboardTable').DataTable({
+        "order": [[2, 'desc']],
+        "lengthMenu": [25, 50, 75, 100],
+        "pageLength": 30
+    });
 
     // Add badge on draw (after sorting, filtering, or paging)
     leaderboardTable.on('draw', function () {
-        // Remove previous badges
-        $('#leaderboardTable tbody tr td:first-child .badge').remove();
-
         // Get the first two visible rows and add badges
         $('#leaderboardTable tbody tr:visible').each(function (index) {
             if (index === 0) {
