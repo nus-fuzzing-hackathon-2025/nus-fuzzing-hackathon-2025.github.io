@@ -80,7 +80,7 @@
           const row = document.createElement("tr");
           row.innerHTML = `
             <td>${no++}</td>
-            <td>${submissionId}</td>
+            <td>${submissionId.replace(/^hackathon-/, '')}</td>
             <td>${score}</td>
             <td>${n_basic}</td>
             <td>${n_medium}</td>
