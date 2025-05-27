@@ -1,4 +1,10 @@
 {
+    "hackathon-mc-v1": [
+        11,
+        8,
+        0,
+        3
+    ],
     "hackathon-baseline-v1": [
         9,
         3,
@@ -12,6 +18,12 @@
         2
     ],
     "hackathon-neo-v1": [
+        5,
+        2,
+        1,
+        2
+    ],
+    "hackathon-yappers-yapping-v1": [
         5,
         2,
         1,
