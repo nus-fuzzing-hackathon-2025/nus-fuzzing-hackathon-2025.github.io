@@ -98,9 +98,9 @@
         // Get the first two visible rows and add badges
         $('#leaderboardTable tbody tr:visible').each(function (index) {
             if (index === 0) {
-                $(this).find('td').eq(0).prepend('<span class="badge badge-warning mr-1">🥇</span>');
+                $(this).find('td').eq(0).prepend('<span>🥇</span>');
             } else if (index === 1) {
-                $(this).find('td').eq(0).prepend('<span class="badge badge-secondary mr-1">🥈</span>');
+                $(this).find('td').eq(0).prepend('<span>🥈</span>');
             }
         });
     });
