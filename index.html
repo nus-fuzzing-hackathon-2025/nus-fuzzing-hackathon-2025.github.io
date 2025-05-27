@@ -11,17 +11,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // Initialize DataTable for Benchmarking Submissions
-            $('#myTable').DataTable();
-
-            // Initialize DataTable for Leaderboard with default sorting and custom page length options
-            $('#leaderboardTable').DataTable({
-                "order": [[2, 'desc']],  // Default sorting by the third column ("Found") in descending order
-                "lengthMenu": [25, 50, 75, 100],  // Custom page length options including '5'
-                "pageLength": 30  // Default number of rows to display
-            });
-        });
+        const leaderboardTable = $('#leaderboardTable').DataTable({
+        "order": [[2, 'desc']],
+        "lengthMenu": [25, 50, 75, 100],
+        "pageLength": 30
+    });
     </script>
 </head>
 <body>
