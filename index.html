@@ -10,13 +10,6 @@
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        const leaderboardTable = $('#leaderboardTable').DataTable({
-        "order": [[2, 'desc']],
-        "lengthMenu": [25, 50, 75, 100],
-        "pageLength": 30
-    });
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
@@ -92,6 +85,11 @@
     }
 
     fetchAndRenderData();
+        const leaderboardTable = $('#leaderboardTable').DataTable({
+        "order": [[2, 'desc']],
+        "lengthMenu": [25, 50, 75, 100],
+        "pageLength": 30
+    });
 
     // Add badge on draw (after sorting, filtering, or paging)
     leaderboardTable.on('draw', function () {
