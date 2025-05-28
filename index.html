@@ -55,50 +55,58 @@
         </main>
     </div>
 </body>
-<script>
+  <script>
+    const leaderboardTable = $('#leaderboardTable').DataTable({
+        "order": [[2, 'desc']],
+        "lengthMenu": [25, 50, 75, 100],
+        "pageLength": 30,
+        "columns": [
+            {
+                "data": null,
+                "render": function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            { "data": "team" },
+            { "data": "score" },
+            { "data": "basic" },
+            { "data": "medium" },
+            { "data": "advanced" }
+        ]
+    });
+
     const JSON_URL = "./eval_summary.json";
 
     async function fetchAndRenderData() {
-      try {
-        const response = await fetch(JSON_URL);
-        const data = await response.json();
-
-        const tableBody = document.getElementById("student_fuzzer_records");
-        tableBody.innerHTML = ""; // Clear existing rows if any
-         let no = 1;
-        for (const [submissionId, [score, n_basic, n_medium, n_advanced]] of Object.entries(data)) {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-            <td>${no++}</td>
-            <td>${submissionId.replace(/^hackathon-/, '')}</td>
-            <td>${score}</td>
-            <td>${n_basic}</td>
-            <td>${n_medium}</td>
-            <td>${n_advanced}</td>
-          `;
-          tableBody.appendChild(row);
+        try {
+            const response = await fetch(JSON_URL);
+            const data = await response.json();
+            const rowData = Object.entries(data).map(([submissionId, [score, n_basic, n_medium, n_advanced]]) => ({
+                "team": submissionId.replace(/^hackathon-/, ''),
+                "score": score,
+                "basic": n_basic,
+                "medium": n_medium,
+                "advanced": n_advanced
+            }));
+            leaderboardTable.rows.add(rowData).draw();
+        } catch (error) {
+            console.error("Error fetching or rendering data:", error);
         }
-      } catch (error) {
-        console.error("Error fetching or rendering data:", error);
-      }
-
     }
 
     fetchAndRenderData();
-        const leaderboardTable = $('#leaderboardTable').DataTable({
-        "order": [[2, 'desc']],
-        "lengthMenu": [25, 50, 75, 100],
-        "pageLength": 30
-    });
 
-    // Add badge on draw (after sorting, filtering, or paging)
     leaderboardTable.on('draw', function () {
-        // Get the first two visible rows and add badges
-        $('#leaderboardTable tbody tr:visible').each(function (index) {
-            if (index === 0) {
-                $(this).find('td').eq(0).prepend('<span>🥇</span>');
-            } else if (index === 1) {
-                $(this).find('td').eq(0).prepend('<span>🥈</span>');
+        leaderboardTable.rows({ search: 'applied' }).every(function () {
+            const row = this.node();
+            const rank = parseInt($(row).find('td:first').text().replace(/🥇|🥈/g, '').trim());
+            $(row).find('td:first').contents().filter(function() {
+                return this.nodeType === 3;
+            }).remove();
+            if (rank === 1) {
+                $(row).find('td:first').prepend('<span>🥇</span>' + rank);
+            } else if (rank === 2) {
+                $(row).find('td:first').prepend('<span>🥈</span>' + rank);
             }
         });
     });
