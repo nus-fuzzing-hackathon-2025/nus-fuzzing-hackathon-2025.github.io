@@ -89,16 +89,16 @@
         1,
         2
     ],
-    "hackathon-casandra-v1": [
-        3,
-        3,
-        0,
-        0
-    ],
     "hackathon-the-query-breakers-v2": [
         3,
         0,
         1,
         2
+    ],
+    "hackathon-casandra-v2": [
+        2,
+        2,
+        0,
+        0
     ]
 }
