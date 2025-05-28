@@ -34,15 +34,19 @@
                 <h2 class="mb-4">Leaderboard</h2>
           <p class="text-muted">
             <strong>Note:</strong> 
-            The scores on this leaderboard are indicative of your submissions and are not final. Final scores and prizes will be determined after the submission deadline, based on the evaluation process and a code review conducted during the internal moderation meeting.
-            The leaderboard displays only your latest submission, not your full submission history. 
+            The scores on this leaderboard are indicative of your submissions. Final scores and prizes will be determined after the deadline, based on the evaluation process and a code review conducted during the internal moderation meeting.
+            <br>
+            Scores are calculated by summing the scores from the two highest-scoring categories out of the three. 
+            <br>
+            <strong>Hints:</strong> 
+            You can try to make your PoC data minimal for SQL logic bugs.
           </p>
                 <table class="table table-bordered table-striped table-hover" id="leaderboardTable">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Rank</th>
                             <th scope="col">Team</th>
-                            <th scope="col">Score</th>
+                            <th scope="col">Score (Indicative)</th>
                             <th scope="col">Parser</th>
                             <th scope="col">SQL Logic</th>
                             <th scope="col">Stateful</th>
@@ -78,6 +82,9 @@
     });
 
     const JSON_URL = "./eval_summary.json";
+    function sumOfLargestTwo(a, b, c) {
+      return a + b + c - Math.min(a, b, c);
+    }
 
     async function fetchAndRenderData() {
         try {
@@ -85,7 +92,7 @@
             const data = await response.json();
             const rowData = Object.entries(data).map(([submissionId, [score, n_basic, n_medium, n_advanced]]) => ({
                 "team": submissionId.replace(/^hackathon-/, ''),
-                "score": score,
+                "score": sumOfLargestTwo(n_basic, n_medium, n_advanced),
                 "basic": n_basic,
                 "medium": n_medium,
                 "advanced": n_advanced
@@ -95,6 +102,8 @@
             console.error("Error fetching or rendering data:", error);
         }
     }
+
+
 
     fetchAndRenderData();
 
