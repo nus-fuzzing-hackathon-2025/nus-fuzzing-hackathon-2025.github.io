@@ -11,6 +11,12 @@
         0,
         3
     ],
+    "hackathon-neo-v2": [
+        11,
+        8,
+        1,
+        2
+    ],
     "hackathon-baseline-v3": [
         9,
         3,
@@ -32,12 +38,6 @@
     "hackathon-yappers-yapping-v2": [
         6,
         3,
-        1,
-        2
-    ],
-    "hackathon-neo-v1": [
-        5,
-        2,
         1,
         2
     ],
