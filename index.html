@@ -111,19 +111,27 @@
 
 
     fetchAndRenderData();
-
     leaderboardTable.on('draw', function () {
-        leaderboardTable.rows({ search: 'applied' }).every(function () {
-            const row = this.node();
-            const rank = parseInt($(row).find('td:first').text().replace(/🥇|🥈/g, '').trim());
-            $(row).find('td:first').contents().filter(function() {
-                return this.nodeType === 3;
-            }).remove();
-            if (rank === 1) {
-                $(row).find('td:first').prepend('<span style="font-size: 32px;">🥇</span>');
-            } else if (rank === 2) {
-                $(row).find('td:first').prepend('<span style="font-size: 32px;">🥈</span>');
-            }
-        });
+    // Get the rows in their current sorted order
+    const sortedRows = leaderboardTable.rows({ order: 'current' }).data().toArray();
+    
+    // Update each row's rank cell based on sorted position
+    sortedRows.forEach((row, index) => {
+        const rowNode = leaderboardTable.row(index).node();
+        const rank = index + 1; // Rank starts from 1
+        const $rankCell = $(rowNode).find('td:first');
+
+        // Clear existing content
+        $rankCell.empty();
+
+        // Assign badges for 1st and 2nd place, otherwise show rank number
+        if (rank === 1) {
+            $rankCell.html('<span style="font-size: 32px;">🏆</span> ' );
+        } else if (rank === 2) {
+            $rankCell.html('<span style="font-size: 32px;">🏆</span> ' );
+        } else {
+        }
     });
+});
+
 </script>
