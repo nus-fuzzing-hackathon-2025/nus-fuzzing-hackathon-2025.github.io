@@ -23,12 +23,6 @@
         8,
         2
     ],
-    "hackathon-or-1-1-v14": [
-        12,
-        3,
-        1,
-        8
-    ],
     "hackathon-fuzzsilly-v1": [
         12,
         10,
@@ -118,6 +112,12 @@
         1,
         1,
         3
+    ],
+    "hackathon-or-1-1-v16": [
+        5,
+        3,
+        1,
+        1
     ],
     "hackathon-hkfuzz-v4": [
         4,
