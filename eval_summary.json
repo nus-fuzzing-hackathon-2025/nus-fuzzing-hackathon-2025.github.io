@@ -23,12 +23,6 @@
         0,
         3
     ],
-    "hackathon-neo-v2": [
-        11,
-        8,
-        1,
-        2
-    ],
     "hackathon-sn-v1": [
         11,
         8,
@@ -94,6 +88,12 @@
         2,
         1,
         2
+    ],
+    "hackathon-neo-v3": [
+        4,
+        2,
+        1,
+        1
     ],
     "hackathon-yi-yin-wai-v1": [
         3,
