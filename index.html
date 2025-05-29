@@ -30,11 +30,12 @@
             <br>
             <h1>Fuzzing Competition: Summer School 2025</h1>
             <div class="container mt-5">
-                <h2 class="mb-4">Leaderboard</h2>
           <p class="text-muted">
             <strong>Note:</strong> 
             The scores on this leaderboard are indicative of your submissions. Final scores and prizes will be determined after the deadline, based on the evaluation process and a code review conducted during the internal moderation meeting.
             <ul>
+              <li style="color: red;">We kindly ask some to refrain from using any tricks to exploit the grading system.
+</li>
               <li>We only fetch your submission from the <em>main</em> branch!</li>
               <li> You can try to make your PoC data minimal for SQL logic bugs (e.g. less than 200). </li>
                 <li> You should pay attention to the sql.grammar. </li>
@@ -78,11 +79,11 @@
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
-            { "data": "team" },
-            { "data": "score" },
-            { "data": "basic" },
-            { "data": "medium" },
-            { "data": "advanced" }
+            { "data": "team" , "className": "text-center" },
+            { "data": "score" , "className": "text-center" },
+            { "data": "basic" , "className": "text-center" },
+            { "data": "medium" , "className": "text-center" },
+            { "data": "advanced" , "className": "text-center" }
         ]
     });
 
