@@ -34,12 +34,8 @@
             <strong>Notice:</strong> 
               <span style="color: red;">At this moment, the estimated time for updating your score is 50mins.</span>
               <span style="color: red;">The grading system will no longer take any submission after Thu May 29 17:30.</span>
-            <ul class="alert alert-info">
-              <li>We only fetch your submission from the <em>main</em> branch!</li>
-              <li> You can try to make your PoC data minimal for SQL logic bugs (e.g. less than 200). </li>
-                <li> You should pay attention to the sql.grammar. </li>
-              <li>You might find state coverage useful when dealing with some bugs.</li>
-            </ul>
+              <div></div>
+              <div id="countdown" class="alert alert-success">Loading...</div>
 
           </p>
                 <table class="table table-bordered table-striped table-hover" id="leaderboardTable">
@@ -135,3 +131,46 @@
 });
 
 </script>
+    <script>
+    function getTargetTimeInSGT() {
+      const now = new Date();
+      const target = new Date();
+      target.setHours(17, 30, 0, 0); // 17:30 SG time today
+
+      // Get current time in UTC+8 (Singapore)
+      const timezoneOffsetSG = -8 * 60; // SG is UTC+8 → offset is -480
+      const localOffset = now.getTimezoneOffset();
+      const diffMinutes = localOffset - timezoneOffsetSG;
+
+      target.setMinutes(target.getMinutes() + diffMinutes);
+
+      if (target < now) {
+        target.setDate(target.getDate() + 1); // If already past 17:30 today, use tomorrow
+      }
+
+      return target;
+    }
+
+    const targetTime = getTargetTimeInSGT();
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetTime - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerText = "Time's up!";
+        clearInterval(timer);
+        return;
+      }
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerText =
+        `⏳ Time Remaining Until Hackathon Deadline ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown(); // initial call
+    const timer = setInterval(updateCountdown, 1000);
+  </script>
