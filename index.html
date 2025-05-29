@@ -34,12 +34,10 @@
             <strong>Notice:</strong> 
               <span style="color: red;"></span>
               <span style="color: red;">🏆 Prizes and final scores will be announced on Friday, May 30 at 12:00 pm(SGT).</span>
-              <span style="color: red;">The grading backend will stop accepting submissions after 17:30.
-However, any submission made before 17:30 will still be used to update the leaderboard.
+              <span style="color: red;">
 We will fetch your final submission for marking at 20:00, so please ensure your best solution is pushed by then.</span> 
 
 
-              <div id="countdown" class="alert alert-success">Loading...</div>
 
           </p>
                 <table class="table table-bordered table-striped table-hover" id="leaderboardTable">
@@ -135,46 +133,3 @@ We will fetch your final submission for marking at 20:00, so please ensure your 
 });
 
 </script>
-    <script>
-    function getTargetTimeInSGT() {
-      const now = new Date();
-      const target = new Date();
-      target.setHours(17, 30, 0, 0); // 17:30 SG time today
-
-      // Get current time in UTC+8 (Singapore)
-      const timezoneOffsetSG = -8 * 60; // SG is UTC+8 → offset is -480
-      const localOffset = now.getTimezoneOffset();
-      const diffMinutes = localOffset - timezoneOffsetSG;
-
-      target.setMinutes(target.getMinutes() + diffMinutes);
-
-      if (target < now) {
-        target.setDate(target.getDate() + 1); // If already past 17:30 today, use tomorrow
-      }
-
-      return target;
-    }
-
-    const targetTime = getTargetTimeInSGT();
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetTime - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").innerText = "Time's up!";
-        clearInterval(timer);
-        return;
-      }
-
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerText =
-        `⏳ Time Remaining Until 17:30:  ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    updateCountdown(); // initial call
-    const timer = setInterval(updateCountdown, 1000);
-  </script>
