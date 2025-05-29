@@ -34,7 +34,10 @@
             <strong>Notice:</strong> 
               <span style="color: red;"></span>
               <span style="color: red;">🏆 Prizes and final scores will be announced on Friday, May 30 at 12:00 pm(SGT).</span>
-              <span style="color: red;">Currently, the grading backend is handling 12 submissions. Please do not submit repeatedly.</span>
+              <span style="color: red;">The grading backend will stop accepting submissions after 17:30.
+However, any submission made before 17:30 will still be used to update the leaderboard.
+We will fetch your final submission for marking at 20:00, so please ensure your best solution is pushed by then.</span> 
+
 
               <div id="countdown" class="alert alert-success">Loading...</div>
 
@@ -169,7 +172,7 @@
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
       document.getElementById("countdown").innerText =
-        `⏳ Time Remaining Until Hackathon Deadline ${hours}h ${minutes}m ${seconds}s`;
+        `⏳ Time Remaining Until 17:30:  ${hours}h ${minutes}m ${seconds}s`;
     }
 
     updateCountdown(); // initial call
