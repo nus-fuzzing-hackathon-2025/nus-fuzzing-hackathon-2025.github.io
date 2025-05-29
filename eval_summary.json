@@ -47,6 +47,12 @@
         3,
         2
     ],
+    "hackathon-err-v3": [
+        10,
+        8,
+        0,
+        2
+    ],
     "hackathon-baseline-v3": [
         9,
         3,
@@ -105,12 +111,6 @@
         4,
         1,
         1,
-        2
-    ],
-    "hackathon-err-v2": [
-        4,
-        2,
-        0,
         2
     ],
     "hackathon-hkfuzz-v1": [
