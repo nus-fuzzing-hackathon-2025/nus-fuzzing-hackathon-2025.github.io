@@ -11,17 +11,17 @@
         1,
         11
     ],
+    "hackathon-mc-v2": [
+        17,
+        9,
+        3,
+        5
+    ],
     "hackathon-why-v9": [
         13,
         1,
         10,
         2
-    ],
-    "hackathon-mc-v1": [
-        11,
-        8,
-        0,
-        3
     ],
     "hackathon-sn-v1": [
         11,
@@ -89,6 +89,12 @@
         1,
         2
     ],
+    "hackathon-the-query-breakers-v5": [
+        6,
+        3,
+        1,
+        2
+    ],
     "hackathon-neo-v3": [
         4,
         2,
@@ -112,11 +118,5 @@
         0,
         1,
         2
-    ],
-    "hackathon-the-query-breakers-v4": [
-        2,
-        0,
-        1,
-        1
     ]
 }
